@@ -30,27 +30,26 @@ for sound in results:
     strOfVoices += "\n"
 
 resultsP2 = results.next_page();
-    for sound in resultsP2:
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
-        strOfVoices += "\n"
+for sound in resultsP2:
+    sound.retrieve_preview(".",sound.name+".mp3")
+    strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+    strOfVoices += "\n"
 
 resultsP3 = resultsP2.next_page();
-    for sound in resultsP3:
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
-        strOfVoices += "\n"
+for sound in resultsP3:
+    sound.retrieve_preview(".",sound.name+".mp3")
+    strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+    strOfVoices += "\n"
 
 resultsP4 = resultsP3.next_page();
-    for sound in resultsP4:
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
-        strOfVoices += "\n"
+for sound in resultsP4:
+    sound.retrieve_preview(".",sound.name+".mp3")
+    strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+    strOfVoices += "\n"
 
 file = open('voices.txt', "a")
 file.write(strOfVoices)
 file.close()
-
 
 print()
 time.sleep(delay)
