@@ -17,7 +17,7 @@ token = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
 client = freesound.FreesoundClient()
 client.set_token(token,"token")
 
-results = client.text_search(query="human voices",fields="id,name,previews,duration")
+results = client.text_search(query="human voices",fields="id,name,previews,duration,analysis")
 
 strOfVoices = "";
 
@@ -25,13 +25,33 @@ for sound in results:
     sound.retrieve_preview(".",sound.name+".mp3")
     strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfVoices += "\n"
+
+resultsP2 = results.next_page();
+    for sound in resultsP2:
+        sound.retrieve_preview(".",sound.name+".mp3")
+        strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+        strOfVoices += "\n"
+
+resultsP3 = resultsP2.next_page();
+    for sound in resultsP3:
+        sound.retrieve_preview(".",sound.name+".mp3")
+        strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+        strOfVoices += "\n"
+
+resultsP4 = resultsP3.next_page();
+    for sound in resultsP4:
+        sound.retrieve_preview(".",sound.name+".mp3")
+        strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+        strOfVoices += "\n"
+
 file = open('voices.txt', "a")
 file.write(strOfVoices)
 file.close()
 
-
-
 print()
+
+
+"""
 strOfMvmnt = "";
 
 results1 = client.text_search(query="beverages",fields="id,name,previews,duration")
