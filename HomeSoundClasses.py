@@ -2,6 +2,7 @@ from __future__ import print_function
 import freesound
 import os
 import sys
+import time
 
 
 api_key = os.getenv('FREESOUND_API_KEY', "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy")
@@ -50,9 +51,8 @@ file.close()
 
 print()
 
-
 """
-strOfMvmnt = "";
+strOfMvmnt = ""
 
 results1 = client.text_search(query="beverages",fields="id,name,previews,duration")
 for sound in results1:
@@ -78,7 +78,7 @@ file = open('movement.txt', "a")
 file.write(strOfMvmnt)
 file.close()
 
-strOfhyg = "";
+strOfhyg = ""
 results3 = client.text_search(query="hygiene",fields="id,name,previews,duration")
 print()
 for sound in results3:
@@ -91,7 +91,7 @@ file.write(strOfhyg)
 file.close()
 
 results4 = client.text_search(query="nature elements",fields="id,name,previews,duration")
-strOfntr = "";
+strOfntr = ""
 print()
 for sound in results4:
     sound.retrieve_preview(".",sound.name+".mp3")
@@ -102,7 +102,7 @@ file = open('elements.txt', "a")
 file.write(strOfntr)
 file.close()
 
-strOfanm = "";
+strOfanm = ""
 results5 = client.text_search(query="urban animals",fields="id,name,previews,duration")
 print()
 for sound in results5:
@@ -112,5 +112,53 @@ for sound in results5:
 
 file = open('animals.txt', "a")
 file.write(strOfanm)
+file.close()
+
+strofApp = ""
+results6 = client.text_search(query="urban animals",fields="id,name,previews,duration")
+print()
+for sound in results6:
+    sound.retrieve_preview(".",sound.name+".mp3")
+    strOfApp += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+    strOfApp += "\n"
+
+file = open('Appliances.txt', "a")
+file.write(strOfApp)
+file.close()
+
+strofFrnt = ""
+results7 = client.text_search(query="urban animals",fields="id,name,previews,duration")
+print()
+for sound in results7:
+    sound.retrieve_preview(".",sound.name+".mp3")
+    strofFrnt += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+    strofFrnt += "\n"
+
+file = open('Furniture.txt', "a")
+file.write(strofFrnt)
+file.close()
+
+strofMusic = ""
+results8 = client.text_search(query="instruments",fields="id,name,previews,duration")
+print()
+for sound in results8:
+    sound.retrieve_preview(".",sound.name+".mp3")
+    strofMusic += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+    strofMusic += "\n"
+
+file = open('Instruments.txt', "a")
+file.write(strofMusic)
+file.close()
+
+strofNoti = ""
+results9 = client.text_search(query="device notifications",fields="id,name,previews,duration")
+print()
+for sound in results9:
+    sound.retrieve_preview(".",sound.name+".mp3")
+    strofNoti += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
+    strofNoti += "\n"
+
+file = open('Notifications.txt', "a")
+file.write(strofNoti)
 file.close()
 """
