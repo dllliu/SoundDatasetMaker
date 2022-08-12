@@ -1,0 +1,15 @@
+Sound Name:Human_Good_20.wav Duration:0.458667
+Sound Name:Human_Good_00.wav Duration:0.693333
+Sound Name:Human_Evil_12.wav Duration:1.57867
+Sound Name:Human_Good_07.wav Duration:1.19467
+Sound Name:Human_Good_05.wav Duration:0.629333
+Sound Name:Human_Good_10.wav Duration:0.842667
+Sound Name:Human_Good_23.wav Duration:0.992
+Sound Name:Human_Evil_03.wav Duration:0.896
+Sound Name:Human_Evil_01.wav Duration:0.970667
+Sound Name:Human_Good_21.wav Duration:0.650667
+Sound Name:Human_Good_26.wav Duration:0.512
+Sound Name:Human_Good_01.wav Duration:0.682667
+Sound Name:Human_Good_24.wav Duration:1.152
+Sound Name:Human_Evil_07.wav Duration:1.58933
+Sound Name:Human_Evil_11.wav Duration:1.39733
