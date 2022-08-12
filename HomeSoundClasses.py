@@ -15,6 +15,8 @@ client_secret = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
 client_id = "uPkz0WfINfbiy8r7exNy"
 token = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
 
+delay = 5; #set time between execution of each download
+
 client = freesound.FreesoundClient()
 client.set_token(token,"token")
 
@@ -49,8 +51,9 @@ file = open('voices.txt', "a")
 file.write(strOfVoices)
 file.close()
 
-print()
 
+print()
+time.sleep(delay)
 """
 strOfMvmnt = ""
 
@@ -67,6 +70,8 @@ for sound in rsults2:
     strOfMvmnt += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfMvmnt += "\n"
 
+time.sleep(delay)
+
 results2 = client.text_search(query="household items",fields="id,name,previews,duration")
 print()
 for sound in results2:
@@ -77,6 +82,9 @@ for sound in results2:
 file = open('movement.txt', "a")
 file.write(strOfMvmnt)
 file.close()
+
+time.sleep(delay)
+
 
 strOfhyg = ""
 results3 = client.text_search(query="hygiene",fields="id,name,previews,duration")
@@ -90,6 +98,8 @@ file = open('hygiene.txt', "a")
 file.write(strOfhyg)
 file.close()
 
+time.sleep(delay)
+
 results4 = client.text_search(query="nature elements",fields="id,name,previews,duration")
 strOfntr = ""
 print()
@@ -101,6 +111,8 @@ for sound in results4:
 file = open('elements.txt', "a")
 file.write(strOfntr)
 file.close()
+
+time.sleep(delay)
 
 strOfanm = ""
 results5 = client.text_search(query="urban animals",fields="id,name,previews,duration")
@@ -114,6 +126,8 @@ file = open('animals.txt', "a")
 file.write(strOfanm)
 file.close()
 
+time.sleep(delay)
+
 strofApp = ""
 results6 = client.text_search(query="urban animals",fields="id,name,previews,duration")
 print()
@@ -125,6 +139,8 @@ for sound in results6:
 file = open('Appliances.txt', "a")
 file.write(strOfApp)
 file.close()
+
+time.sleep(delay)
 
 strofFrnt = ""
 results7 = client.text_search(query="urban animals",fields="id,name,previews,duration")
@@ -138,6 +154,8 @@ file = open('Furniture.txt', "a")
 file.write(strofFrnt)
 file.close()
 
+time.sleep(delay)
+
 strofMusic = ""
 results8 = client.text_search(query="instruments",fields="id,name,previews,duration")
 print()
@@ -150,6 +168,8 @@ file = open('Instruments.txt', "a")
 file.write(strofMusic)
 file.close()
 
+time.sleep(delay)
+
 strofNoti = ""
 results9 = client.text_search(query="device notifications",fields="id,name,previews,duration")
 print()
@@ -161,4 +181,6 @@ for sound in results9:
 file = open('Notifications.txt', "a")
 file.write(strofNoti)
 file.close()
+
+time.sleep(delay)
 """
