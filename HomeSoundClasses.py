@@ -19,82 +19,78 @@ client.set_token(token,"token")
 
 results = client.text_search(query="human voices",fields="id,name,previews,duration")
 
+strOfVoices = "";
+
 for sound in results:
     sound.retrieve_preview(".",sound.name+".mp3")
-    strOfVoices = "";
     strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfVoices += "\n"
-
-    """
-    print("Sound Name:", sound.name)
-    print("Url:", sound.url)
-    print("Duration:", str(sound.duration), "(s)")
-    """
-file = open('C:\Users\farla\Desktop\Sounds\voices.txt', "a")
+file = open('voices.txt', "a")
 file.write(strOfVoices)
 file.close()
 
-results1 = client.text_search(query="beverages",fields="id,name,previews")
+
+
 print()
+strOfMvmnt = "";
+
+results1 = client.text_search(query="beverages",fields="id,name,previews,duration")
 for sound in results1:
     sound.retrieve_preview(".",sound.name+".mp3")
-    strOfMvmnt = "";
     strOfMvmnt+= "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfMvmnt += "\n"
 
-rsults2 = client.text_search(query="household actions",fields="id,name,previews")
+rsults2 = client.text_search(query="household actions",fields="id,name,previews,duration")
 print()
 for sound in rsults2:
     sound.retrieve_preview(".",sound.name+".mp3")
-    strOfMvmnt = "";
     strOfMvmnt += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfMvmnt += "\n"
 
-results2 = client.text_search(query="household items",fields="id,name,previews")
+results2 = client.text_search(query="household items",fields="id,name,previews,duration")
 print()
 for sound in results2:
     sound.retrieve_preview(".",sound.name+".mp3")
-    strOfMvmnt = "";
     strOfMvmnt += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfMvmnt += "\n"
 
-file = open('C:\Users\farla\Desktop\Sounds\movement.txt', "a")
-file.write(strOfInfo)
+file = open('movement.txt', "a")
+file.write(strOfMvmnt)
 file.close()
 
-results3 = client.text_search(query="hygiene",fields="id,name,previews")
+strOfhyg = "";
+results3 = client.text_search(query="hygiene",fields="id,name,previews,duration")
 print()
 for sound in results3:
     sound.retrieve_preview(".",sound.name+".mp3")
-    strOfhyg = "";
     strOfhyg += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfhyg += "\n"
 
-file = open('C:\Users\farla\Desktop\Sounds\hygiene.txt', "a")
-file.write(strOfInfo)
+file = open('hygiene.txt', "a")
+file.write(strOfhyg)
 file.close()
 
-results4 = client.text_search(query="nature elements",fields="id,name,previews")
+results4 = client.text_search(query="nature elements",fields="id,name,previews,duration")
+strOfntr = "";
 print()
 for sound in results4:
     sound.retrieve_preview(".",sound.name+".mp3")
-    strOfntr = "";
     strOfntr += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfntr += "\n"
 
-file = open('C:\Users\farla\Desktop\Sounds\elements.txt', "a")
-file.write(strOfInfo)
+file = open('elements.txt', "a")
+file.write(strOfntr)
 file.close()
 
-
-results5 = client.text_search(query="urban animals",fields="id,name,previews")
+strOfanm = "";
+results5 = client.text_search(query="urban animals",fields="id,name,previews,duration")
 print()
 for sound in results5:
     sound.retrieve_preview(".",sound.name+".mp3")
-    strOfanm = "";
     strOfanm += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)
     strOfanm += "\n"
 
-file = open('C:\Users\farla\Desktop\Sounds\animals.txt', "a")
-file.write(strOfInfo)
+file = open('animals.txt', "a")
+file.write(strOfanm)
 file.close()
+"""
