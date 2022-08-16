@@ -1,0 +1,90 @@
+Sound Name:chew.wav Duration:11.0 User:gingersnap9900
+Sound Name:INHALE EXHALE.wav Duration:4.76 User:gingersnap9900
+Sound Name:Slurp in.wav Duration:12.23 User:gingersnap9900
+Sound Name:Frustration.wav Duration:5.0 User:gingersnap9900
+Sound Name:Brushing teeth.wav Duration:12.972 User:gingersnap9900
+Sound Name:Mouth Rise.wav Duration:26.5 User:gingersnap9900
+Sound Name:Water Faucet 2.wav Duration:14.5 User:gingersnap9900
+Sound Name:Gargling 1.wav Duration:8.0 User:gingersnap9900
+Sound Name:Grind.wav Duration:7.0 User:gingersnap9900
+Sound Name:Smack.wav Duration:2.5 User:gingersnap9900
+Sound Name:Water Faucet 1.wav Duration:45.612 User:gingersnap9900
+Sound Name:Gargling 2.wav Duration:15.352 User:gingersnap9900
+Sound Name:Boiling Water.wav Duration:15.412 User:gingersnap9900
+Sound Name:Electric razor 10 - travel razor on beard Duration:20.6893 User:giddster
+Sound Name:Electric razor 13 - battery driven razorblade on beard Duration:15.3795 User:giddster
+Sound Name:VACCUM_SWEEPER.WAV Duration:91.264 User:dansotak
+Sound Name:Common Disorder (Vaccum Reduct) Duration:126.637 User:the_odds
+Sound Name:Shopvac Duration:27.1557 User:Dnab55
+Sound Name:Vacuum cleaner Duration:375.929 User:Metzik
+Sound Name:vaccumwhirr_01.wav Duration:7.56971 User:xtrgamr
+Sound Name:Vacuum cleaner Duration:7.59467 User:MariaMNobre
+Sound Name:Vacuum Cleaner Duration:10.6347 User:AO-SoundPawz
+Sound Name:Vacuum cleaner.wav Duration:24.144 User:Jeanet_Henning
+Sound Name:Vent thrumming Duration:23.0862 User:Veridiansunrise
+Sound Name:Vaccum_s63.wav Duration:6.36227 User:deleted_user_2195044
+Sound Name:Vaccum cleaner.wav Duration:5.71501 User:Santiago0107
+Sound Name:vaccum cleaner.wav Duration:41.4563 User:squashy555
+Sound Name:Vaccum_sfx_12.wav Duration:6.14746 User:deleted_user_2195044
+Sound Name:Vaccum_bass_03.wav Duration:2.18848 User:deleted_user_2195044
+Sound Name:Vaccum_sfx_07.wav Duration:1.32066 User:deleted_user_2195044
+Sound Name:Shaving, Electric, A.wav Duration:66.2255 User:InspectorJ
+Sound Name:Shave_BeardScratch_01.wav Duration:15.1933 User:bunguren
+Sound Name:Shave_BeardScratch_04.wav Duration:15.4617 User:bunguren
+Sound Name:Shave_BeardScratch_05.wav Duration:9.64167 User:bunguren
+Sound Name:Shave_BeardScratch_03.wav Duration:9.66 User:bunguren
+Sound Name:Shave_BeardScratch_02.wav Duration:17.005 User:bunguren
+Sound Name:18. Shaving.wav Duration:29.0 User:btherad2000
+Sound Name:wet shave.wav Duration:18.0 User:reacthor
+Sound Name:shaving cream.wav Duration:1.25867 User:jrssandoval
+Sound Name:Shaving.aif Duration:159.733 User:JasonElrod
+Sound Name:Shaving.WAV Duration:14.7653 User:jadend2
+Sound Name:Shaving Cream.WAV Duration:9.43333 User:meghannmiller
+Sound Name:Shaving 1.wav Duration:12.8871 User:TheLukasBanana
+Sound Name:shaving in the afternoon 131013 Duration:32.4843 User:Gausstronomic
+Sound Name:shaving.wav Duration:17.2209 User:simosco
+Sound Name:20200720_160320.m4a Duration:57.152 User:Mafucha
+Sound Name:limpiando acuario.wav_Rusty Duration:63.3426 User:IESPAUCLARIS
+Sound Name:Toilet.wav Duration:12.06 User:Debsound
+Sound Name:broming.wav Duration:6.5 User:NyikoKhoza
+Sound Name:Sweeping a bamboo floor Duration:86.6714 User:munyeca
+Sound Name:Vacuum cleaner Duration:1.64154 User:simoneyoh3998
+Sound Name:Vacuum Cleaner-Samsung Easy 1300.wav Duration:29.56 User:Debsound
+Sound Name:Washing Hands at Home Duration:42.6768 User:ultradust
+Sound Name:Broom Pickup 2.wav Duration:0.430998 User:killianm97
+Sound Name:Broom Pickup 3.wav Duration:0.392993 User:killianm97
+Sound Name:Broom Pickup 1.wav Duration:0.52 User:killianm97
+Sound Name:sponge-floor-tiles_2.wav Duration:3.7895 User:Mickael_Leroi
+Sound Name:sponge-floor-tiles_1.wav Duration:5.05312 User:Mickael_Leroi
+Sound Name:Sweeping_Fx.wav Duration:17.0 User:YMB
+Sound Name:Toilet brush scrubbing bowl,bathroom.wav Duration:13.7122 User:lungimahlaresound
+Sound Name:Washing_Machine_Washing_01.flac Duration:25.5302 User:Foleyhaven
+Sound Name:Washing Machine; rumble Duration:25.3653 User:Australopithecusman
+Sound Name:Washing Machine.WAV Duration:84.2133 User:poorenglishjuggler
+Sound Name:washing machine Duration:26.5599 User:ptrflr
+Sound Name:Washing machine Duration:613.507 User:koulaxizis
+Sound Name:washing machine.WAV Duration:2135.84 User:lartti
+Sound Name:Washing Machine - Different speeds Duration:79.7398 User:leonelmail
+Sound Name:Washing machine 2 Duration:8.7249 User:Cigaro30
+Sound Name:Washing machine 1 Duration:12.1469 User:Cigaro30
+Sound Name:Contact Mic on Metalic Foldout Clothes Hanger 2 Duration:168.308 User:Morphic__
+Sound Name:Contact Mic on Metalic Foldout Clothes Hanger 3 Duration:67.7771 User:Morphic__
+Sound Name:Contact Mic on Metalic Foldout Clothes Hanger 1 Duration:200.375 User:Morphic__
+Sound Name:OWI_Clothes hangers Duration:52.152 User:Cllari
+Sound Name:Washing machine Duration:72.41 User:eaglechopper
+Sound Name:washing-machine.wav Duration:100.677 User:UncleSigmund
+Sound Name:Washing_Machine_Washing_01.flac Duration:25.5302 User:Foleyhaven
+Sound Name:Washing Machine; rumble Duration:25.3653 User:Australopithecusman
+Sound Name:Washing Machine.WAV Duration:84.2133 User:poorenglishjuggler
+Sound Name:washing machine Duration:26.5599 User:ptrflr
+Sound Name:Washing machine Duration:613.507 User:koulaxizis
+Sound Name:washing machine.WAV Duration:2135.84 User:lartti
+Sound Name:Washing Machine - Different speeds Duration:79.7398 User:leonelmail
+Sound Name:Washing machine 2 Duration:8.7249 User:Cigaro30
+Sound Name:Washing machine 1 Duration:12.1469 User:Cigaro30
+Sound Name:Contact Mic on Metalic Foldout Clothes Hanger 2 Duration:168.308 User:Morphic__
+Sound Name:Contact Mic on Metalic Foldout Clothes Hanger 3 Duration:67.7771 User:Morphic__
+Sound Name:Contact Mic on Metalic Foldout Clothes Hanger 1 Duration:200.375 User:Morphic__
+Sound Name:OWI_Clothes hangers Duration:52.152 User:Cllari
+Sound Name:Washing machine Duration:72.41 User:eaglechopper
+Sound Name:washing-machine.wav Duration:100.677 User:UncleSigmund
