@@ -1,0 +1,162 @@
+Sound Name:moving box to closet.wav Duration:3.05914 User:lartti Description:Moving box to closet, recorded with Zoom h1n. Tags:['box', 'moving', 'Closet']
+Sound Name:moving small box.wav Duration:65.256 User:dynamique Description:The sound of someone moving a very small box on the floor (or a table). Tags:['box', 'case', 'handling', 'floor', 'wooden', 'light', 'object', 'item', 'moving', 'table', 'small', 'putting']
+Sound Name:08 Cardboard Box Opening .mp3 Duration:2.02556 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:28 Cardboard Box Open.mp3 Duration:2.548 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:13 Cardboard Box Stacking.mp3 Duration:0.928413 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:15 Cardboard Box Handling.mp3 Duration:3.98474 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:03 Cardboard Box Opening.mp3 Duration:4.06311 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:11 Carboard Box Folding.mp3 Duration:9.33984 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:moving tiny metallic box.wav Duration:6.00288 User:lartti Description:Me moving metallic boc at the table. Recorded with Olympus LS 14. Tags:['box', 'moving', 'Metallic']
+Sound Name:Cardboard Box.wav Duration:17.4291 User:et_graham Description:Recording of someone searching through a cardboard box for something. Opening and closing the box, moving it around, with different variations. Tags:['box', 'OWI', 'opening', 'searching', 'variation', 'cement-surface', 'moving', 'closing', 'cardboard']
+Sound Name:Alluminium Parts Moving Duration:5.80499 User:The-Sacha-Rush Description:Sounds of few alluminium cuts moving. Tags:['box', 'real', 'field-recording', 'fields', 'metal', 'alluminium', 'parts', 'moving', 'cuts']
+Sound Name:16 Cardboard Box Handling.mp3.mp3 Duration:1.73821 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:06 Cardboard Box Turning Over.mp3 Duration:2.83535 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:18 Cardboard Box Unfolding Flaps.mp3 Duration:5.97005 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:04 Cardboard Box Pulling Out Object.mp3 Duration:0.90229 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:Dropping Coins Duration:6.7664 User:1histori Description:Dropping coins on other coins. 
+Enjoy! Tags:['gold', 'money', 'Coins', 'trade', 'currency', 'Dropping', 'dropped', 'pay', 'coins', 'dropping', 'roll', 'diamond', 'nickel', 'dime', 'penny', 'fall', 'coin', 'payment', 'change', 'euro', 'drop', 'metal', 'cash', 'quarter']
+Sound Name:Coins.wav Duration:0.459841 User:sparkle1 Description:Coins , gold Tags:['Coins', 'gold', 'collision', 'pay', 'coins', 'currency', 'money', 'drop', 'coin']
+Sound Name:21 Coins jar; glass jar with coins; near.wav Duration:17.1 User:juanlopz08 Description:Coins jar; glass jar with coins; near Tags:['dry', 'coins', 'Coins', 'jar', 'glass', 'near']
+Sound Name:FOL Bottle Coins 01.wav Duration:10.8167 User:BitDeep Description:Coins between in a bottle. Tags:['coins', 'money', 'Coins', 'cash', 'Falls', 'Piggy', 'bank']
+Sound Name:FX_Coins.wav Duration:7.0341 User:Haykrich Description:A coin box that was shook around to resemble the sound of footsteps on gravel or snow, recorded using a K-2 microphone Tags:['stones', 'Coins', 'rustling', 'crumbling', 'footsteps', 'coins', 'packet', 'rocks', 'environment', 'running', 'steps', 'foot', 'shaking', 'feet', 'walking', 'OWI']
+Sound Name:coins_fall_into_coins.WAV Duration:6.79184 User:Sir Smith Description:Coins dropped into more coins. Tags:['coin', 'coins', 'drop', 'fall']
+Sound Name:Coins23.wav Duration:0.298073 User:doudar41 Description:Coins sound telephone recording Tags:['gold', 'money', 'coins', 'currency', 'game', 'rpg', 'coin']
+Sound Name:Coins08.wav Duration:0.344263 User:doudar41 Description:Coins sound telephone recording Tags:['Foley', 'Money', 'Video-Game', 'Coins', 'Coin']
+Sound Name:Coins06.wav Duration:0.262472 User:doudar41 Description:Coins sound telephone recording Tags:['Foley', 'Money', 'Video-Game', 'Coins', 'Coin']
+Sound Name:Coins29.wav Duration:1.07873 User:doudar41 Description:Coins sound telephone recording Tags:['gold', 'money', 'coins', 'currency', 'game', 'rpg', 'coin']
+Sound Name:Coins01.wav Duration:0.294853 User:doudar41 Description:Coins sound telephone recording Tags:['Foley', 'Money', 'Video-Game', 'Coins', 'Coin']
+Sound Name:Coins27.wav Duration:1.26796 User:doudar41 Description:Coins sound telephone recording Tags:['gold', 'money', 'coins', 'currency', 'game', 'rpg', 'coin']
+Sound Name:Coins10.wav Duration:0.58644 User:doudar41 Description:Coins sound telephone recording Tags:['Foley', 'Money', 'Video-Game', 'Coins', 'Coin']
+Sound Name:Coins33.wav Duration:0.57 User:doudar41 Description:Telephone record coins Tags:['money', 'videogame', 'coins', 'coin', 'currency']
+Sound Name:Coins15.wav Duration:0.280884 User:doudar41 Description:Telephone record coins Tags:['gold', 'money', 'coins', 'currency', 'game', 'rpg', 'coin']
+Sound Name:Putting a match out Duration:4.56 User:BiancaBothaPure Description:A match being put out  in water. Tags:['OWI', 'burning', 'burn', 'flame', 'Match', 'match']
+Sound Name:Match - Strike and Light 02.wav Duration:6.10479 User:JarredGibb Description:Jarred Gibb - MatchBox Tags:['fire', 'light', 'matchbox', 'flame', 'Match', 'strike', 'match']
+Sound Name:Match - Strike and Light 01.wav Duration:7.54579 User:JarredGibb Description:Jarred Gibb - MatchBox Tags:['fire', 'light', 'matchbox', 'flame', 'Match', 'strike', 'match']
+Sound Name:MatchBox Handling 01.wav Duration:3.8044 User:JarredGibb Description:Jarred Gibb - MatchBox Tags:['fire', 'light', 'matchbox', 'flame', 'Match', 'strike', 'match']
+Sound Name:MatchBox Shake.wav Duration:2.39308 User:JarredGibb Description:Jarred Gibb - MatchBox Tags:['fire', 'light', 'matchbox', 'flame', 'Match', 'strike', 'match']
+Sound Name:MatchBox - Strike and Light 03.wav Duration:4.53669 User:JarredGibb Description:Jarred Gibb - MatchBox Tags:['fire', 'light', 'matchbox', 'flame', 'Match', 'strike', 'match']
+Sound Name:MatchBox - Handling 02.wav Duration:4.13469 User:JarredGibb Description:Jarred Gibb - MatchBox Tags:['fire', 'light', 'matchbox', 'flame', 'Match', 'strike', 'match']
+Sound Name:Match Ignite.aif Duration:7.5 User:DiArchangeli Description:A field-recording of the sound of a match striking to ignition. Recorded at home with Scarlett Gen 2 mic. Sound was made by  using a match and matchbox Tags:['ignite', 'burning', 'stove', 'crackle', 'candle', 'Match', 'clipper', 'burner', 'matches', 'matchbox', 'zippo', 'strike', 'match', 'foley', 'fire', 'burn', 'disposable', 'collection', 'cigarette', 'lighting', 'lighter', 'smoking', 'spark', 'hiss', 'flames', 'tobacco', 'light', 'flame', 'ignition', 'smoke']
+Sound Name:Party Pack, Match, Ignite, 01-01.wav Duration:5.07578 User:InspectorJ Description:Lighting a wooden match through friction with a matchbox. A sound from one of my recent SFX libraries, "Party Pack".
+
+<b>This sound is <u>not</u> in the public domain. Please attribute/credit the sound if you use it.</b> If you would prefer to not have to give attribution, then take a look at the <b><a href="https://www.jshaw.co.uk/inspectorj-freesound-library" rel="nofollow">attribution-free license</a></b>.
+
+An example of how you might credit is by putting this in the description/credits:
+"Party Pack, Match, Ignite, 01-01.wav" by InspectorJ (<a href="http://www.jshaw.co.uk" rel="nofollow">www.jshaw.co.uk</a>) of <a href="http://Freesound.org" rel="nofollow">Freesound.org</a>
+
+If any of these sounds have been of help, and you are feeling charitable, please do consider<b> <a href="http://www.freesound.org/donations/donate/" rel="nofollow">donating to Freesound</a> </b>to help keep the site running (a link is also on the home page). Any donations are greatly appreciated! And for more awesome sounds, do please <b><a href="https://www.jshaw.co.uk/party-pack" rel="nofollow">check out the full library</a></b> or my <b><a href="https://www.jshaw.co.uk/store" rel="nofollow">SFX store</a></b>.
+
+Please comment on where you intend to use the sound, and feel free to post a link to the work where you used it if you want (I enjoy watching/listening to anything you create!)
+
+The sound was recorded using a "Zoom H6 (XY) recorder" and "Rode NTG2" microphone on 7th June 2019.
+
+Note: Audio quality is always better when downloaded. Tags:['Ignite', 'ignite', 'light', 'fire', 'matches', 'Light', 'Fire', 'Matchbox', 'Candle', 'Matches', 'matchbox', 'match', 'Party', 'party', 'Pack', 'candle', 'Match', 'pack']
+Sound Name:Match lighting-2.wav Duration:1.69495 User:SophronsineSoundDesign Description:Lighting of a match, taken with zoom H2N. Tags:['combustion', 'flames', 'burning', 'fire', 'burn', 'crackle', 'matches', 'flame', 'sparks', 'match']
+Sound Name:Match lighting-1.wav Duration:0.901167 User:SophronsineSoundDesign Description:Lighting of a match, taken with zoom H2N. Tags:['combustion', 'flames', 'burning', 'fire', 'burn', 'crackle', 'matches', 'flame', 'sparks', 'match']
+Sound Name:Match ligthing-1.wav Duration:21.3773 User:SophronsineSoundDesign Description:Lighting of a match, taken with zoom H2N. Tags:['combustion', 'flames', 'burning', 'fire', 'burn', 'crackle', 'matches', 'flame', 'sparks', 'match']
+Sound Name:Match extinguish-2.wav Duration:1.59945 User:SophronsineSoundDesign Description:Match extinguished in water, taken with zoom H2N. Tags:['combustion', 'flames', 'burning', 'fire', 'burn', 'crackle', 'matches', 'flame', 'sparks', 'match']
+Sound Name:Match extinguish-1.wav Duration:12.2201 User:SophronsineSoundDesign Description:Match extinguished in water, taken with zoom H2N. Tags:['combustion', 'flames', 'burning', 'fire', 'burn', 'crackle', 'matches', 'flame', 'sparks', 'match']
+Sound Name:Match box manipulation, remove match, match stick, sticks, wood, wooden_96Khz_Mono_ZoomH4n_NT5-001.wav Duration:2.13707 User:MattRuthSound Description:A box full of matches being shaken Tags:['box', 'sticks', 'wooden', 'remove', 'wood', 'stick', 'manipulation', 'Match']
+Sound Name:Key noises.wav Duration:5.38703 User:sKydran Description:Keys noises/shaking. Recorded in audacity in mono (My First Upload!!!) Tags:['Keys', 'home', 'keys']
+Sound Name:Picking Up Keys Duration:2.17417 User:WeeJee_vdH Description:The sound of a set of car keys being picked up from a table. Recorded in stereo in a professional recording studio. Tags:['clank', 'Keys', 'keyring', 'up', 'metal-on-metal', 'keys', 'pick', 'jingle', 'table', 'picking']
+Sound Name:Piano Keys x3 Duration:13.4531 User:theoctopus559 Description:Me doing a loop with my right hand on the piano. (can be used in conjunction with Piano Keys x1 x2) 
+
+to credit correctly please Credit me as
+*Nicholas The Octopus Camarena* Tags:['chord', 'chords', 'Keys', 'Sample', 'keys', 'synth', 'Piano', 'piano', 'loop']
+Sound Name:Foley_Keys_Movement_Mono_NTG4P.wav Duration:10.0462 User:Nox_Sound Description:Keys movements - manipulation (x5).
+
+You can edit it with Reaper/Audacity/etc.
+
+Gear : Rode NTG4+
+File: 48khz, 24 bit, Mono, Wav. Tags:['Foley', 'foley', 'short', 'NTG4', 'keys', 'mono', 'rode', 'zoom', 'h5', 'Keys', 'manipulation', 'movement', 'Movement']
+Sound Name:Foley_Keys_Drop_Tile_Mono_NTG4P.wav Duration:5.70779 User:Nox_Sound Description:Keys drop on Tile (x5).
+
+You can edit it with Reaper/Audacity/etc.
+
+Gear : Rode NTG4+
+File: 48khz, 24 bit, Mono, Wav. Tags:['zoom', 'H5', 'Foley', 'foley', 'tile', 'Drop', 'NTG4', 'keys', 'mono', 'drop', 'Rode', 'Keys', 'short', 'clean', 'Tile']
+Sound Name:keys on door and open.wav Duration:7.22141 User:sKydran Description:Keys going in the door and turning Open/close. Recorded in Audacity in mono. Tags:['keys', 'door', 'key', 'opening']
+Sound Name:Keys Jingling 2_2 Duration:1.68985 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 1_4 Duration:1.87042 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 1_1 Duration:2.73248 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 2_1 Duration:2.67415 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 1_2 Duration:1.82229 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 1_5 Duration:3.46119 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 1_6 Duration:2.26483 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 1_3 Duration:1.49096 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Keys Jingling 2_3 Duration:5.32046 User:Joao_Janz Description:Recorded and processed at 24bit 48kHz using the Tascam DR-40 Linear PCM Recorder.
+
+Processing: Gain-staging and soft high and low frequency filtering. No EQ boost or cuts anywhere else. Also De-noised. Tags:['Sound', 'Real', 'Door', 'Keys', 'Lock', 'Jingling', 'Recording', 'Rattle', 'Foley', 'Design', 'Key', 'Jingle']
+Sound Name:Velcro Duration:3.24158 User:WeeJee_vdH Description:The sound of Velcro being torn, or a Velcro strap being pulled off. Recorded in stereo in a professional recording studio.  Tags:['ripped', 'torn', 'rip', 'strap', 'Velcro', 'cracking', 'velcro', 'ripping']
+Sound Name:velcro.WAV Duration:5.79667 User:dly0694 Description:I recorded myself pulling Velcro from my camera bag using a shotgun mic. Tags:['velcro', 'fabric', 'rip', 'Velcro']
+Sound Name:velcro4.wav Duration:0.152925 User:HerbertBoland Description:a pull an a Velcro strap Tags:['pull', 'short', 'velcro']
+Sound Name:velcro1.wav Duration:0.125351 User:HerbertBoland Description:a short pull on a Velcro strap, light Tags:['fast', 'pull', 'short', 'strap', 'velcro']
+Sound Name:velcro2.wav Duration:0.250726 User:HerbertBoland Description:a pull on a Velcro strap, less hasty Tags:['environmental-sounds-research', 'pull', 'short', 'slow', 'velcro']
+Sound Name:Velcro 4 Duration:2.12234 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['tear', 'cloth', 'fabric', 'rip', 'Velcro']
+Sound Name:Velcro 8 Duration:2.09379 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['fabric', 'tear', 'rip', 'cloth', 'Velcro', 'tearing', 'ripping']
+Sound Name:Velcro 3 Duration:1.88943 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['tear', 'cloth', 'fabric', 'rip', 'Velcro']
+Sound Name:Velcro 2 Duration:5.83501 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['tear', 'cloth', 'fabric', 'rip', 'Velcro']
+Sound Name:Velcro 6 Duration:4.27213 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['fabric', 'tear', 'rip', 'cloth', 'Velcro', 'tearing', 'ripping']
+Sound Name:Velcro 5 Duration:2.72363 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['fabric', 'tear', 'rip', 'cloth', 'Velcro', 'tearing', 'ripping']
+Sound Name:Velcro 7 Duration:2.10882 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['fabric', 'tear', 'rip', 'cloth', 'Velcro', 'tearing', 'ripping']
+Sound Name:Velcro 1 Duration:3.29261 User:CassieTee Description:Attempt to make a high quality ripping sound using Velcro.
+Made with a friend's mic. Tags:['tear', 'cloth', 'fabric', 'rip', 'Velcro']
+Sound Name:Velcro Pull 02 Duration:1.70265 User:Rudmer_Rotteveel Description:Velcro being pulled. This is one of 4 velcro pulls in the same sound pack.
+
+CC0, so no need to give credit. If you want, let me know what you used the sounds for as I really like hearing about other people's projects :) Tags:['pull', 'fabric', 'tear', 'rip', 'duct-tape', 'pulling', 'bandage', 'velcro', 'tape', 'bandaid', 'tearing', 'clothing', 'ripping', 'velkro']
+Sound Name:Velcro Pull Short Duration:0.516599 User:Rudmer_Rotteveel Description:Velcro being pulled. This is one of 4 velcro pulls in the same sound pack.
+
+CC0, so no need to give credit. If you want, let me know what you used the sounds for as I really like hearing about other people's projects :) Tags:['pull', 'fabric', 'tear', 'rip', 'duct-tape', 'pulling', 'bandage', 'velcro', 'tape', 'bandaid', 'tearing', 'clothing', 'ripping', 'velkro']
+Sound Name:Bathroom_Zipper.wav Duration:0.50517 User:AleGT06 Description:Zipper Tags:['toilet', 'wc', 'flush']
+Sound Name:zipper.wav Duration:12.9707 User:nakenne Description:Zipper Tags:['unzip', 'zip', 'unzipping', 'coat', 'jacket', 'zipping', 'zipper']
+Sound Name:Zipper2.wav Duration:0.505687 User:EverHeat Description:Zipper. Tags:['zipper', 'zipping', 'zip']
+Sound Name:Zipper-uni.wav Duration:5.94431 User:HeraclitoPD Description:zipper Tags:['unzip', 'zipper', 'zip']
+Sound Name:zipper1.wav Duration:0.495937 User:herraportti Description:Zipper Tags:['zipper', 'zip', 'trousers']
+Sound Name:Zipper.wav Duration:0.384313 User:EverHeat Description:Zipper. Tags:['zipper', 'zipping', 'zip']
+Sound Name:Zipper.wav Duration:24.576 User:jastroz Description:Zipper Tags:['jacket', 'zipper', 'zipping', 'unzipping']
+Sound Name:Zipper.m4a Duration:3.52 User:sofiamadeira Description:Zipper Tags:['case', 'pencil', 'zipper']
+Sound Name:Double_Zipper_repeated.aif Duration:3.04 User:tmkappelt Description:zipper Tags:['repeat', 'zipper']
+Sound Name:Double_Zipper_slow.aif Duration:2.52 User:tmkappelt Description:zipper Tags:['slow', 'zipper']
+Sound Name:Double_Zipper_fast.aif Duration:0.88 User:tmkappelt Description:zipper Tags:['zipper']
+Sound Name:Zipper MUS 152.mp3 Duration:2.94098 User:ja20208 Description:Zipper Tags:['unzip', 'zip', 'unzipping', 'backpack', 'jacket', 'bag', 'zipping', 'zipper', 'mus152']
+Sound Name:sydne_shelvey_003_zipper.wav Duration:5.23858 User:sydneshelvey Description:zipper Tags:['sound', 'backpack', 'zipper']
+Sound Name:cremayera.mp3 Duration:1.05902 User:milton. Description:a zipper Tags:['zipper', 'zipper-sounds']
+Sound Name:Zipper07.wav Duration:1.6254 User:sound_ims Description:Just a little zipper collection. Tags:['clothing-and-accessories', 'closing', 'zipper', 'opening']
+Sound Name:moving box to closet.wav Duration:3.05914 User:lartti Description:Moving box to closet, recorded with Zoom h1n. Tags:['box', 'moving', 'Closet']
+Sound Name:moving small box.wav Duration:65.256 User:dynamique Description:The sound of someone moving a very small box on the floor (or a table). Tags:['box', 'case', 'handling', 'floor', 'wooden', 'light', 'object', 'item', 'moving', 'table', 'small', 'putting']
+Sound Name:08 Cardboard Box Opening .mp3 Duration:2.02556 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:28 Cardboard Box Open.mp3 Duration:2.548 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:13 Cardboard Box Stacking.mp3 Duration:0.928413 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:15 Cardboard Box Handling.mp3 Duration:3.98474 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:03 Cardboard Box Opening.mp3 Duration:4.06311 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:11 Carboard Box Folding.mp3 Duration:9.33984 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:moving tiny metallic box.wav Duration:6.00288 User:lartti Description:Me moving metallic boc at the table. Recorded with Olympus LS 14. Tags:['box', 'moving', 'Metallic']
+Sound Name:Cardboard Box.wav Duration:17.4291 User:et_graham Description:Recording of someone searching through a cardboard box for something. Opening and closing the box, moving it around, with different variations. Tags:['box', 'OWI', 'opening', 'searching', 'variation', 'cement-surface', 'moving', 'closing', 'cardboard']
+Sound Name:Alluminium Parts Moving Duration:5.80499 User:The-Sacha-Rush Description:Sounds of few alluminium cuts moving. Tags:['box', 'real', 'field-recording', 'fields', 'metal', 'alluminium', 'parts', 'moving', 'cuts']
+Sound Name:16 Cardboard Box Handling.mp3.mp3 Duration:1.73821 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:06 Cardboard Box Turning Over.mp3 Duration:2.83535 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:18 Cardboard Box Unfolding Flaps.mp3 Duration:5.97005 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']
+Sound Name:04 Cardboard Box Pulling Out Object.mp3 Duration:0.90229 User:Coral_Island_Studios Description:cardboard, paper, box, foley, moving, scooting, handling, Tags:['box', 'foley', 'handling', 'paper', 'moving', 'scooting', 'cardboard']

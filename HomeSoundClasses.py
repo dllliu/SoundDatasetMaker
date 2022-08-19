@@ -4,16 +4,10 @@ import os
 import sys
 import time
 
-
 api_key = os.getenv('FREESOUND_API_KEY', "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy")
-if api_key is None:
-    print("You need to set your API key as an evironment variable",)
-    print("named FREESOUND_API_KEY")
-    sys.exit(-1)
-
 client_secret = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
 client_id = "uPkz0WfINfbiy8r7exNy"
-token = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
+token = client_secret
 
 delay = 2; #set time between execution of each download
 
@@ -22,64 +16,88 @@ client.set_token(token,"token")
 
 #Voice Class
 strOfVoices = "";
-voices_arr = ["people talking home"]
-for x in voices_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Description:" + sound.description;
-        strOfVoices  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+
+
+page = client.text_search(query="talking",fields="id,name,previews,duration,analysis,username,tags,description")
+for sound in page:
+    sound.retrieve_preview(".",sound.name)
+    strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
+    strOfVoices  += "\n"
+
+nextPage = page.next_page();
+for sound in nextPage:
+    sound.retrieve_preview(".",sound.name)
+    strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
+    strOfVoices  += "\n"
 
 print("Download of Human Voice Class Completed")
 with open('voices.txt', "a") as file:
     file.write(strOfVoices)
 
-
 #Beginning of Movement class
 
-strOfMvmnt = ""
+strOfActions = ""
 
-mvmnt_arr = ["beverages","home walking","house eating","setting table","washing dishes", "cutting food"]
+mvmnt_arr = ["home walking","house eating","setting table","washing dishes","cutting food"]
 for x in mvmnt_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfMvmnt += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
-        strOfMvmnt  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+        sound.retrieve_preview(".",sound.name)
+        strOfActions += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
+        strOfActions  += "\n"
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
-resultsItems = client.text_search(query="household items",fields="id,name,previews,duration,analysis,username,description")
+file = open('Actions.txt', "a")
+file.write(strOfActions)
+file.close()
 
-for sound in resultsItems:
-    sound.retrieve_preview(".",sound.name+".mp3")
-    strOfMvmnt += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
-    strOfMvmnt  += "\n"
+strOfItems = ""
 
-resultsPG2 = resultsItems.next_page();
-for sound in resultsPG2:
-    sound.retrieve_preview(".",sound.name+".mp3")
-    strOfMvmnt += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
-    strOfMvmnt  += "\n"
+r_arr = ["box moving","coins","match","keys","velcro","zippers,","box moving"]
+for x in r_arr:
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    for sound in page:
+        time.sleep(delay)
+        sound.retrieve_preview(".",sound.name)
+        strOfItems += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
+        strOfItems  += "\n"
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+
+
+file = open('Items.txt', "a")
+file.write(strOfItems)
+file.close()
+
+
+strOfBev= ""
+
+bev_arr = ["ice cubes","beverage"]
+for x in bev_arr:
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    for sound in page:
+        time.sleep(delay)
+        sound.retrieve_preview(".",sound.name)
+        strOfBev += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
+        strOfBev  += "\n"
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+
 
 print("Movement Class Downloaded")
-file = open('movement.txt', "a")
-file.write(strOfMvmnt)
-file.close()
+
+
 
 #Hygiene CLass
 strOfhyg = ""
 Hyg_arr = ["hygiene","vaccum","shaving","cleaning home","brushing teeth","washing clothes"]
 for x in Hyg_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfhyg += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strOfhyg += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strOfhyg  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Hygiene Class Downloaded")
 file = open('hygiene.txt', "a")
@@ -90,13 +108,13 @@ file.close()
 strOfntr = ""
 ntr_arr = ["weather","hail","thunder"]
 for x in ntr_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfntr += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strOfntr += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strOfntr  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Nature Class Downloaded")
 file = open('elements.txt', "a")
@@ -106,63 +124,67 @@ file.close()
 strOfanm = ""
 anm_arr = ["bark","mews","tweet"]
 for x in anm_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOfanm += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strOfanm += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strOfanm += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Animal Class Finished Downloading")
 file = open('animals.txt', "a")
 file.write(strOfanm)
 file.close()
 
+
 strofPAplc = ""
 PAplc_arr = ["cell phone","camera","computer"]
 for x in PAplc_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strofPAplc += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strofPAplc += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strofPAplc += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Personal Appliance Class Finished Downloading")
 file = open('PersonalAppliances.txt', "a")
 file.write(strofPAplc)
 file.close()
 
+
+
 strKitApp = ""
 KitAppArr = ["kitchen appliances","oven","blender","garbage disposal","stove","toaster","furnace"]
 
 for x in KitAppArr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strKitApp += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strKitApp += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strKitApp += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Kitchen Appliance Class Finished Downloading")
 file = open('Kitchen.txt', "a")
 file.write(strKitApp)
 file.close()
 
+
 strLiv = ""
 LivApp = ["Sofa","TV","Fan","Light Switch","Blinds"]
 
 for x in LivApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strLiv += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strLiv += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strLiv += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Living Room Appliance Class Finished Downloading")
 file = open('LivingRoom.txt', "a")
@@ -173,13 +195,13 @@ strBano = ""
 BanoApp = ["bathroom","ventilator","hair dryer","soap dispenser"]
 
 for x in BanoApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strBano += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strBano += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strBano += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Bathroom Appliance Class Finished Downloading")
 file = open('Bathroom.txt', "a")
@@ -187,47 +209,51 @@ file.write(strBano)
 file.close()
 
 strOffice = ""
-OfficeApp = ["office","keyboard","clock","printer","coffee grinder","Air Conditioner","Fan","Light Switch Office"]
+OfficeApp = ["office","keyboard","printer","Light Switch Office"]
 for x in OfficeApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strOffice += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strOffice += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strOffice += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Office Appliance Class Finished Downloading")
 file = open('Office.txt', "a")
 file.write(strOffice)
 file.close()
 
+
 strbedRm = ""
-bedRmApp = ["bedroom","fan","drawers","lamp","smoke alarm","bells","lock"]
+bedRmApp = ["bed"]
 for x in bedRmApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strbedRm += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strbedRm += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strbedRm += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+
 
 print("Bedroom Appliance Class Finished Downloading")
 file = open('Bedroom.txt', "a")
 file.write(strbedRm)
 file.close()
 
+
+
 strFurn = ""
-FurnArr = ["sofa","furniture","door","carpet","cabinet","closet","curtains","chair","fireplace"]
+FurnArr = ["furniture","carpet","closet","cabinet","chair"]
 for x in FurnArr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strFurn += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strFurn += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strFurn += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Furniture Class Finished Downloading")
 file = open('Furniture.txt', "a")
@@ -235,15 +261,15 @@ file.write(strFurn)
 file.close()
 
 strInstruments = ""
-InsArr = ["guitar","piano","flute","trumpet","trombone","drum"]
+InsArr = ["guitar","piano","violin","drums","saxophone","flute"]
 for x in InsArr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
     for sound in page:
         time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".mp3")
-        strInstruments += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+        sound.retrieve_preview(".",sound.name+".wav")
+        strInstruments += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
         strInstruments += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description")
+    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
 
 print("Instrument Class Finished Downloading")
 file = open('Instrument.txt', "a")
@@ -251,26 +277,12 @@ file.write(strInstruments)
 file.close()
 
 
-strofMusic = ""
-results8 = client.text_search(query="instruments",fields="id,name,previews,duration,description")
-print()
-for sound in results8:
-    sound.retrieve_preview(".",sound.name+".mp3")
-    strofMusic += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
-    strofMusic += "\n"
-
-file = open('Instruments.txt', "a")
-file.write(strofMusic)
-file.close()
-
-time.sleep(delay)
-
 strofNoti = ""
-results9 = client.text_search(query="device notifications",fields="id,name,previews,duration")
+results9 = client.text_search(query="notifications",fields="id,name,previews,duration,description,username,tags,analysis")
 print()
 for sound in results9:
-    sound.retrieve_preview(".",sound.name+".mp3")
-    strofNoti += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Description:" + sound.description;
+    sound.retrieve_preview(".",sound.name+".wav")
+    strofNoti += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
     strofNoti += "\n"
 
 file = open('Notifications.txt', "a")
