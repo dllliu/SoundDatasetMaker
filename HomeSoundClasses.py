@@ -3,288 +3,530 @@ import freesound
 import os
 import sys
 import time
+import csv
+import numpy as np
 
 api_key = os.getenv('FREESOUND_API_KEY', "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy")
 client_secret = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
 client_id = "uPkz0WfINfbiy8r7exNy"
 token = client_secret
 
-delay = 2; #set time between execution of each download
+delay = 2;
 
 client = freesound.FreesoundClient()
 client.set_token(token,"token")
-
 #Voice Class
-strOfVoices = "";
 
+DataOuptut=[]
 
-page = client.text_search(query="talking",fields="id,name,previews,duration,analysis,username,tags,description")
-for sound in page:
-    sound.retrieve_preview(".",sound.name)
-    strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
-    strOfVoices  += "\n"
+TARGETITEMCOUNT=50
 
-nextPage = page.next_page();
-for sound in nextPage:
-    sound.retrieve_preview(".",sound.name)
-    strOfVoices += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
-    strOfVoices  += "\n"
+TotalItemCount=0
+
+finished=False
+page = client.text_search(query="talking",fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+nextPage = page
+while nextPage!=None:
+    for sound in page:
+        if "\\" in sound.name:
+            continue
+        tags = str(sound.tags)
+        New_Tags = tags.replace(",","+")
+        rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+        }
+        sound.retrieve_preview(".",sound.name)
+        DataOuptut.append(rowDictionary)
+        TotalItemCount+=1
+        if(TotalItemCount>=TARGETITEMCOUNT):
+            finished=True
+    if(finished):
+        break
+    nextPage = page.next_page()
 
 print("Download of Human Voice Class Completed")
-with open('voices.txt', "a") as file:
-    file.write(strOfVoices)
 
-#Beginning of Movement class
+def reset():
+    TotalItemCount=0
+    finished=False
+return None
 
-strOfActions = ""
+reset()
+TARGETITEMCOUNT=20
 
 mvmnt_arr = ["home walking","house eating","setting table","washing dishes","cutting food"]
 for x in mvmnt_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name)
-        strOfActions += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
-        strOfActions  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-
-file = open('Actions.txt', "a")
-file.write(strOfActions)
-file.close()
-
-strOfItems = ""
-
-r_arr = ["box moving","coins","match","keys","velcro","zippers,","box moving"]
-for x in r_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name)
-        strOfItems += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strOfItems  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-
-
-file = open('Items.txt', "a")
-file.write(strOfItems)
-file.close()
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 
-strOfBev= ""
+reset()
+items_arr = ["box moving","coins","match","keys","velcro","zippers,","box moving"]
+TARGETITEMCOUNT=int(100/items_arr.length)
 
+for x in items_arr:
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
+
+reset()
 bev_arr = ["ice cubes","beverage"]
-for x in bev_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name)
-        strOfBev += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username + " Tags:" + str(sound.tags);
-        strOfBev  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+TARGETITEMCOUNT=int(100/bev_arr.length)
 
+for x in bev_arr:
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Movement Class Downloaded")
 
-
-
-#Hygiene CLass
-strOfhyg = ""
+reset()
 Hyg_arr = ["hygiene","vaccum","shaving","cleaning home","brushing teeth","washing clothes"]
+TARGETITEMCOUNT=int(100/Hyg_arr.length)
+
 for x in Hyg_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strOfhyg += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strOfhyg  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
-print("Hygiene Class Downloaded")
-file = open('hygiene.txt', "a")
-file.write(strOfhyg)
-file.close()
-
-#Nature Class
-strOfntr = ""
-ntr_arr = ["weather","hail","thunder"]
-for x in ntr_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strOfntr += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strOfntr  += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+reset()
+ntitems_arr = ["weather","hail","thunder"]
+TARGETITEMCOUNT=int(100/ntitems_arr.length)
+for x in Hyg_arr:
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Nature Class Downloaded")
-file = open('elements.txt', "a")
-file.write(strOfntr)
-file.close()
 
-strOfanm = ""
+reset()
 anm_arr = ["bark","mews","tweet"]
+TARGETITEMCOUNT=int(100/anm_arr.length)
 for x in anm_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strOfanm += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strOfanm += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
+#-----------------------------------
 
-print("Animal Class Finished Downloading")
-file = open('animals.txt', "a")
-file.write(strOfanm)
-file.close()
-
-
-strofPAplc = ""
+reset()
 PAplc_arr = ["cell phone","camera","computer"]
-for x in PAplc_arr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strofPAplc += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strofPAplc += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+TARGETITEMCOUNT=int(100/PAplc.length)
+for x in anm_arr:
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Personal Appliance Class Finished Downloading")
-file = open('PersonalAppliances.txt', "a")
-file.write(strofPAplc)
-file.close()
 
-
-
-strKitApp = ""
+reset()
 KitAppArr = ["kitchen appliances","oven","blender","garbage disposal","stove","toaster","furnace"]
-
-for x in KitAppArr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strKitApp += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strKitApp += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+TARGETITEMCOUNT=int(100/KitAppArr.length)
+for x in KitAppArr_arr:
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Kitchen Appliance Class Finished Downloading")
-file = open('Kitchen.txt', "a")
-file.write(strKitApp)
-file.close()
 
-
-strLiv = ""
+reset()
 LivApp = ["Sofa","TV","Fan","Light Switch","Blinds"]
+TARGETITEMCOUNT=int(100/LivApp.length)
 
 for x in LivApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strLiv += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strLiv += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Living Room Appliance Class Finished Downloading")
-file = open('LivingRoom.txt', "a")
-file.write(strLiv)
-file.close()
 
-strBano = ""
+reset()
 BanoApp = ["bathroom","ventilator","hair dryer","soap dispenser"]
+TARGETITEMCOUNT=int(100/BanoApp.length)
 
-for x in BanoApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strBano += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strBano += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+for x in LivApp:
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Bathroom Appliance Class Finished Downloading")
-file = open('Bathroom.txt', "a")
-file.write(strBano)
-file.close()
 
-strOffice = ""
+
+reset()
 OfficeApp = ["office","keyboard","printer","Light Switch Office"]
+TARGETITEMCOUNT=int(100/OfficeApp.length)
+
 for x in OfficeApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
+
+
+reset()
+TARGETITEMCOUNT=50
+page = client.text_search(query="bed",fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+nextPage = page
+while nextPage!=None:
     for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strOffice += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strOffice += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-
-print("Office Appliance Class Finished Downloading")
-file = open('Office.txt', "a")
-file.write(strOffice)
-file.close()
-
-
-strbedRm = ""
-bedRmApp = ["bed"]
-for x in bedRmApp:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strbedRm += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strbedRm += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+        if "\\" in sound.name:
+            continue
+        tags = str(sound.tags)
+        New_Tags = tags.replace(",","+")
+        rowDictionary={
+        "name":sound.name,
+        "url":sound.url,
+        "tags":New_Tags,
+        "username":sound.username,
+        "license":sound.license,
+        "description":sound.description,
+        "duration":str(sound.duration),
+        "geotags":sound.geotag
+        }
+        sound.retrieve_preview(".",sound.name)
+        DataOuptut.append(rowDictionary)
+        TotalItemCount+=1
+        if(TotalItemCount>=TARGETITEMCOUNT):
+            finished=True
+    if(finished):
+        break
+    nextPage = page.next_page()
 
 
 print("Bedroom Appliance Class Finished Downloading")
-file = open('Bedroom.txt', "a")
-file.write(strbedRm)
-file.close()
 
 
-
-strFurn = ""
+reset()
 FurnArr = ["furniture","carpet","closet","cabinet","chair"]
+TARGETITEMCOUNT=int(100/FurnArr.length)
+
 for x in FurnArr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strFurn += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strFurn += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Furniture Class Finished Downloading")
-file = open('Furniture.txt', "a")
-file.write(strFurn)
-file.close()
 
-strInstruments = ""
+reset()
 InsArr = ["guitar","piano","violin","drums","saxophone","flute"]
+TARGETITEMCOUNT=int(100/InsArr.length)
+
 for x in InsArr:
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
-    for sound in page:
-        time.sleep(delay)
-        sound.retrieve_preview(".",sound.name+".wav")
-        strInstruments += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-        strInstruments += "\n"
-    page = client.text_search(query=x,fields="id,name,previews,duration,analysis,username,description,tags")
+    page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+    nextPage = page
+    while nextPage!=None:
+        for sound in page:
+            if "\\" in sound.name:
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            rowDictionary={
+            "name":sound.name,
+            "url":sound.url,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",sound.name)
+            DataOuptut.append(rowDictionary)
+            TotalItemCount+=1
+            if(TotalItemCount>=TARGETITEMCOUNT):
+                finished=True
+        if(finished):
+            break
+        nextPage = page.next_page()
 
 print("Instrument Class Finished Downloading")
-file = open('Instrument.txt', "a")
-file.write(strInstruments)
-file.close()
+print("Finished Downloads!!!!!!!!")
 
-
-strofNoti = ""
-results9 = client.text_search(query="notifications",fields="id,name,previews,duration,description,username,tags,analysis")
-print()
-for sound in results9:
-    sound.retrieve_preview(".",sound.name+".wav")
-    strofNoti += "Sound Name:" + sound.name + " Duration:" + str(sound.duration)+ " User:" + sound.username+ " Tags:" + str(sound.tags);
-    strofNoti += "\n"
-
-file = open('Notifications.txt', "a")
-file.write(strofNoti)
-file.close()
+with open('voices.csv', 'w') as csvfile:
+    fieldnames = DataOuptut[0].keys()
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
+    writer.writeheader()
+    for row in DataOuptut:
+        writer.writerow(row);
