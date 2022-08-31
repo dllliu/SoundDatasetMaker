@@ -106,9 +106,6 @@ def DownloadDictOfSoundResults(arr,target):
                 break
             nextPage = nextPage.next_page()
 
-#Code to Download Voice Class
-
-"""
 voice_arr = ["talking"]
 DownloadDictOfSoundResults(voice_arr,60)
 print("Download of Human Voice Class Completed")
@@ -118,10 +115,20 @@ with open('Voices.csv', 'w') as csvfile:
     writer.writeheader()
     for row in DataOuptut:
         writer.writerow(row);
-"""
 
+setFinished(False)
+setTotal(0)
+bev_arr = ["ice cubes","beverage"]
+targetEachEntry=int(100/len(bev_arr))
+DownloadDictOfSoundResults(bev_arr,targetEachEntry)
+with open('Beverages.csv', 'w') as csvfile:
+    fieldnames = DataOuptut[0].keys()
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
+    writer.writeheader()
+    for row in DataOuptut:
+        writer.writerow(row);
+print("Final Phase 3 of Movement Done")
 
-"""
 setFinished(False)
 setTotal(0)
 mvmnt_arr = ["home walking","house eating","clapping","kids fighting home","home movement"]
@@ -324,16 +331,3 @@ with open('Instruments.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Instrument Class Finished Downloading")
 print("Finished Downloads!!!!!!!!")
-"""
-setFinished(False)
-setTotal(0)
-bev_arr = ["ice cubes","beverage"]
-targetEachEntry=int(100/len(bev_arr))
-DownloadDictOfSoundResults(bev_arr,targetEachEntry)
-with open('Beverages.csv', 'w') as csvfile:
-    fieldnames = DataOuptut[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
-    writer.writeheader()
-    for row in DataOuptut:
-        writer.writerow(row);
-print("Final Phase 3 of Movement Done")
