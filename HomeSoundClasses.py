@@ -85,17 +85,6 @@ def DownloadDictOfSoundResults(arr,target):
                 tags = str(sound.tags)
                 New_Tags = tags.replace(",","+")
                 uuid = uuid4()
-                rowDictionary={
-                "name":sound.name,
-                "url":sound.url,
-                "uuid":uuid,
-                "tags":New_Tags,
-                "username":sound.username,
-                "license":sound.license,
-                "description":sound.description,
-                "duration":str(sound.duration),
-                "geotags":sound.geotag
-                }
                 sound.retrieve_preview(".",str(uuid)+".wav")
                 DataOuptut.append(rowDictionary)
                 IncrementTotal()
@@ -108,7 +97,7 @@ def DownloadDictOfSoundResults(arr,target):
 
 #Code to Download Voice Class
 
-"""
+
 voice_arr = ["talking"]
 DownloadDictOfSoundResults(voice_arr,60)
 print("Download of Human Voice Class Completed")
@@ -118,15 +107,17 @@ with open('Voices.csv', 'w') as csvfile:
     writer.writeheader()
     for row in DataOuptut:
         writer.writerow(row);
-"""
 
 
-"""
+print(DataOuptut)
+DataOuptut.clear()
+print(DataOuptut)
+
 setFinished(False)
 setTotal(0)
 mvmnt_arr = ["home walking","house eating","clapping","kids fighting home","home movement"]
 try:
-    DownloadDictOfSoundResults(mvmnt_arr,int(100/mvmnt_arr.length))
+    DownloadDictOfSoundResults(mvmnt_arr,int(100/len(mvmnt_arr)))
 except ValueError:
     print("next page is not accessible")
 finally:
@@ -140,7 +131,7 @@ finally:
 print("Phase 1 of Movement Done")
 
 
-
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 items_arr = ["box moving","coins","plastic bags","keys","velcro","zippers,"]
@@ -159,7 +150,7 @@ finally:
 
 print("Phase 2 of Movement Done")
 
-
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 bev_arr = ["ice cubes","beverage"]
@@ -175,7 +166,7 @@ print("Final Phase 3 of Movement Done")
 
 
 
-
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 Hyg_arr = ["hygiene","vaccum","shaving","cleaning home","washing clothes"]
@@ -188,6 +179,8 @@ with open('Hygiene.csv', 'w', encoding="utf-8") as csvfile:
         writer.writerow(row);
 
 
+
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 nature_arr = ["weather","home rain","thunder"]
@@ -202,6 +195,7 @@ with open('Nature.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Nature Class Downloaded")
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 anm_arr = ["bark","mews","tweet"]
@@ -214,6 +208,7 @@ with open('Animals.csv', 'w', encoding="utf-8") as csvfile:
     for row in DataOuptut:
         writer.writerow(row);
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 PersonalAppliances = ["cell phone","camera","computer"]
@@ -228,6 +223,7 @@ with open('PersonalAppliances.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Personal Appliance Class Finished Downloading")
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 KitchenApp = ["kitchen appliances","oven","blender","garbage disposal","stove","toaster","furnace"]
@@ -242,6 +238,7 @@ with open('Kitchen.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Kitchen Appliance Class Finished Downloading")
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 LivingApp = ["Sofa","TV","Fan","Light Switch","Blinds"]
@@ -256,6 +253,7 @@ with open('LivingRoom.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Living Room Appliance Class Finished Downloading")
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 Bathroom = ["bathroom","ventilator","hair dryer","soap dispenser"]
@@ -270,6 +268,7 @@ with open('Bathroom.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Bathroom Appliance Class Finished Downloading")
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 OfficeApp = ["office","keyboard","printer","Light Switch Office"]
@@ -282,7 +281,7 @@ with open('Office.csv', 'w', encoding="utf-8") as csvfile:
     for row in DataOuptut:
         writer.writerow(row);
 
-
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 bed_arr = ["bed","bedroom"]
@@ -296,6 +295,7 @@ with open('Bedroom.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Bedroom Appliance Class Finished Downloading")
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 FurnArr = ["furniture","carpet","closet","cabinet","chair"]
@@ -310,6 +310,7 @@ with open('Furniture.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Furniture Class Finished Downloading")
 
+DataOuptut.clear()
 setFinished(False)
 setTotal(0)
 InstrumentsArr = ["guitar","piano","violin","drums","saxophone","flute"]
@@ -324,16 +325,3 @@ with open('Instruments.csv', 'w', encoding="utf-8") as csvfile:
 
 print("Instrument Class Finished Downloading")
 print("Finished Downloads!!!!!!!!")
-"""
-setFinished(False)
-setTotal(0)
-bev_arr = ["ice cubes","beverage"]
-targetEachEntry=int(100/len(bev_arr))
-DownloadDictOfSoundResults(bev_arr,targetEachEntry)
-with open('Beverages.csv', 'w') as csvfile:
-    fieldnames = DataOuptut[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
-    writer.writeheader()
-    for row in DataOuptut:
-        writer.writerow(row);
-print("Final Phase 3 of Movement Done")
