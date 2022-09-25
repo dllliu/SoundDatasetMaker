@@ -60,7 +60,6 @@ def DownloadDictOfSoundResults(arr,dir):
             print(str(count) + ": " + new_Name,sound.username)
 
 def DownloadNextPage(arr,dir):
-    looped_each_count = 0
     count = 0
     for x in arr:
         page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
@@ -89,7 +88,38 @@ def DownloadNextPage(arr,dir):
             Dataoutput.append(rowDictionaryPaged)
             count += 1
             print(str(count) + ": " + new_Name,sound.url)
-"""
+
+def DownloadThirdPage(arr,dir):
+    count = 0
+    for x in arr:
+        page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+        nextPage = page.next_page()
+        thirdPage = nextPage.next_page()
+        for sound in thirdPage:
+            if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
+            #print("Skipped" + str(sound))
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            Name = str(sound.name)
+            new_Name = Name.replace("\\","-")
+            uuid = uuid4()
+            rowDictionaryPaged={
+            "name":new_Name,
+            "url":sound.url,
+            "uuid":uuid,
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag
+            }
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,new_Name+".wav"))
+            Dataoutput.append(rowDictionaryPaged)
+            count += 1
+            print(str(count) + ": " + new_Name,sound.url)
+
 voice_arr = ["speaking","laughing","shouting","crying","coughing"]
 DownloadDictOfSoundResults(voice_arr,'001 - Voices')
 DownloadNextPage(voice_arr,'001 - Voices')
@@ -112,11 +142,11 @@ with open('Liquids.csv', 'w',encoding='utf-8') as csvfile:
     for row in Dataoutput:
         writer.writerow(row);
 
-
 Dataoutput.clear()
-locomotion_arr = ["walking","clapping","snapping","running"]
+locomotion_arr = ["walking","clapping","snapping","running","footsteps"]
 DownloadDictOfSoundResults(locomotion_arr,'003 - Locomotion')
 DownloadNextPage(locomotion_arr,'003 - Locomotion')
+DownloadThirdPage(locomotion_arr,'003 - Locomotion')
 with open('Motion.csv', 'w',encoding='utf-8') as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -136,10 +166,11 @@ with open('HouseholdItems.csv', 'w',encoding='utf-8') as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
-digestive = ["chewing","biting","gargling","hiccuping"]
+digestive = ["chewing","biting","gargling","hiccuping","burping","stomach rumbling"]
 DownloadDictOfSoundResults(digestive,'005 - Digestive')
 DownloadNextPage(digestive,'005 - Digestive')
-with open('Locomotion.csv', 'w',encoding='utf-8') as csvfile:
+DownloadThirdPage(digestive,'005 - Digestive')
+with open('Digestive.csv', 'w',encoding='utf-8') as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
     writer.writeheader()
@@ -156,7 +187,6 @@ with open('Hygiene.csv', 'w', encoding="utf-8") as csvfile:
     writer.writeheader()
     for row in Dataoutput:
         writer.writerow(row);
-"""
 
 Dataoutput.clear()
 nature_arr = ["gusts","rain","thunder","hail"]
@@ -171,9 +201,10 @@ with open('Nature.csv', 'w', encoding="utf-8") as csvfile:
 
 
 Dataoutput.clear()
-anm_arr = ["bark","mews","tweet","howl"]
+anm_arr = ["dog","cat","bark","mews","howl"]
 DownloadDictOfSoundResults(anm_arr,'008 - Animals')
 DownloadNextPage(anm_arr,'008 - Animals')
+DownloadThirdPage(anm_arr,'008 - Animals')
 with open('Animals.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -206,9 +237,10 @@ with open('Cleaning_Appliances.csv', 'w', encoding="utf-8") as csvfile:
 
 Dataoutput.clear()
 
-lighting = ["light switch","flashlight","lamp"]
-DownloadDictOfSoundResults(lighting, '011 - LightingAppliances')
-DownloadNextPage(lighting, '011 - LightingAppliances')
+lighting = ["light switch","flashlight","lamp","lightbulb","light"]
+DownloadDictOfSoundResults(lighting, '011 - Lighting_Appliances')
+DownloadNextPage(lighting, '011 - Lighting_Appliances')
+DownloadThirdPage(lighting, '011 - Lighting_Appliances')
 with open('Lighting.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
