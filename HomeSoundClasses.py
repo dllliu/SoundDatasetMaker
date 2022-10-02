@@ -5,7 +5,7 @@ import sys
 import time
 import csv
 import numpy as np
-from uuid import uuid4
+import random
 
 api_key = os.getenv('FREESOUND_API_KEY', "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy")
 client_secret = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
@@ -27,6 +27,15 @@ TotalItemCount=0
 finished = False
 
 SOURCE_DATA = 'AudioData'
+
+sub_dirs = os.listdir(SOURCE_DATA)
+
+dict_classID = {}
+for i in range(15):
+    dict_classID[sub_dirs[i]] = i+1
+
+print(dict_classID)
+
 def DownloadDictOfSoundResults(arr,dir):
     count = 0
     finished = False
@@ -42,22 +51,25 @@ def DownloadDictOfSoundResults(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            uuid = uuid4()
+            fold_no = random.randrange(0,10)
             rowDictionary={
+            "id":sound.id,
             "name":new_Name,
             "url":sound.url,
-            "uuid":uuid,
+            "className":dir,
+            "classID":dict_classID[dir],
             "tags":New_Tags,
             "username":sound.username,
             "license":sound.license,
             "description":sound.description,
             "duration":str(sound.duration),
-            "geotags":sound.geotag
+            "geotags":sound.geotag,
+            "fold":fold_no
             }
-            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,new_Name+".wav"))
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
             count += 1
             Dataoutput.append(rowDictionary)
-            print(str(count) + ": " + new_Name,sound.username)
+            print(str(count) + ": " + new_Name)
 
 def DownloadNextPage(arr,dir):
     count = 0
@@ -72,22 +84,25 @@ def DownloadNextPage(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            uuid = uuid4()
+            fold_no = random.randrange(0,10)
             rowDictionaryPaged={
+            "id":sound.id,
             "name":new_Name,
             "url":sound.url,
-            "uuid":uuid,
+            "className":dir,
+            "classID":dict_classID[dir],
             "tags":New_Tags,
             "username":sound.username,
             "license":sound.license,
             "description":sound.description,
             "duration":str(sound.duration),
-            "geotags":sound.geotag
+            "geotags":sound.geotag,
+            "fold":fold_no
             }
-            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,new_Name+".wav"))
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
             Dataoutput.append(rowDictionaryPaged)
             count += 1
-            print(str(count) + ": " + new_Name,sound.url)
+            print(str(count) + ": " + new_Name)
 
 def DownloadThirdPage(arr,dir):
     count = 0
@@ -95,6 +110,7 @@ def DownloadThirdPage(arr,dir):
         page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
         nextPage = page.next_page()
         thirdPage = nextPage.next_page()
+        fold_no = random.randrange(0,10)
         for sound in thirdPage:
             if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
             #print("Skipped" + str(sound))
@@ -103,22 +119,24 @@ def DownloadThirdPage(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            uuid = uuid4()
             rowDictionaryPaged={
+            "id":sound.id,
             "name":new_Name,
             "url":sound.url,
-            "uuid":uuid,
+            "className":dir,
+            "classID":dict_classID[dir],
             "tags":New_Tags,
             "username":sound.username,
             "license":sound.license,
             "description":sound.description,
             "duration":str(sound.duration),
-            "geotags":sound.geotag
+            "geotags":sound.geotag,
+            "fold":fold_no
             }
-            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,new_Name+".wav"))
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
             Dataoutput.append(rowDictionaryPaged)
             count += 1
-            print(str(count) + ": " + new_Name,sound.url)
+            print(str(count) + ": " + new_Name)
 
 voice_arr = ["speaking","laughing","shouting","crying","coughing"]
 DownloadDictOfSoundResults(voice_arr,'001 - Voices')
@@ -177,10 +195,11 @@ with open('Digestive.csv', 'w',encoding='utf-8') as csvfile:
     for row in Dataoutput:
         writer.writerow(row);
 
+
 Dataoutput.clear()
 Hyg_arr = ["hygiene","vaccum","shaving","cleaning home","aerosol","hair spray"]
 DownloadDictOfSoundResults(Hyg_arr,'006 - Hygiene')
-DownloadNextPage(Hyg_arr,'006 - Hygiene')
+#DownloadNextPage(Hyg_arr,'006 - Hygiene')
 with open('Hygiene.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -227,7 +246,7 @@ Dataoutput.clear()
 
 Cleaning = ["dishwasher","washer","dryer","vaccum"]
 DownloadDictOfSoundResults(Cleaning,'010 - Cleaning_Appliances')
-DownloadNextPage(Cleaning,'010 - Cleaning_Appliances')
+#DownloadNextPage(Cleaning,'010 - Cleaning_Appliances')
 with open('Cleaning_Appliances.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -275,7 +294,7 @@ with open('Furniture.csv', 'w', encoding="utf-8") as csvfile:
 Dataoutput.clear()
 tools = ["hammer","saw","screwdriver","power dril"]
 DownloadDictOfSoundResults(tools, '014 - Tools')
-DownloadNextPage(tools,'014 - Tools')
+#DownloadNextPage(tools,'014 - Tools')
 with open('Tools.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
