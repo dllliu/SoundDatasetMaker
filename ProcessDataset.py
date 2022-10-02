@@ -70,6 +70,8 @@ GenerateWAVE(os.path.join(parent_folder,'008 - Ventilation_Appliances'),os.path.
 GenerateWAVE(os.path.join(parent_folder,'009 - Furniture'),os.path.join(copy_parent_folder,'009 - Furniture'))
 GenerateWAVE(os.path.join(parent_folder,'010 - Instruments'),os.path.join(copy_parent_folder,'010 - Instruments'))
 
+
+"""
 folded = 'Folded-AudioData'
 
 def categorizeFiles(input_dir):
@@ -81,36 +83,37 @@ def categorizeFiles(input_dir):
         print(fold_no)
         temp = eachfile.split("\\")
         outputfile = temp[2]
-        if fold_no == '1':
+        if fold_no == '0':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold1',outputfile))
-        elif fold_no == '2':
+        elif fold_no == '1':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold2',outputfile))
-        elif fold_no == '3':
+        elif fold_no == '2':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold3',outputfile))
-        elif fold_no == '4':
+        elif fold_no == '3':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold4',outputfile))
-        elif fold_no == '5':
+        elif fold_no == '4':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold5',outputfile))
-        elif fold_no == '6':
+        elif fold_no == '5':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold6',outputfile))
-        elif fold_no == '7':
+        elif fold_no == '6':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold7',outputfile))
-        elif fold_no == '8':
+        elif fold_no == '7':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold8',outputfile))
-        elif fold_no == '9':
+        elif fold_no == '8':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold9',outputfile))
-        elif fold_no == '10':
+        elif fold_no == '9':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold10',outputfile))
 
+
 for subdir in all_og_child_directories:
-    categorizeFiles(subdir)
+    categorizeFiles(subdir)    

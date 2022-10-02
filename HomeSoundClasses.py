@@ -32,7 +32,7 @@ sub_dirs = os.listdir(SOURCE_DATA)
 
 dict_classID = {}
 for i in range(10):
-    dict_classID[sub_dirs[i]] = i+1
+    dict_classID[sub_dirs[i]] = i
 
 print(dict_classID)
 
@@ -51,7 +51,7 @@ def DownloadDictOfSoundResults(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.randrange(1,10)
+            fold_no = random.randrange(0,11)
             rowDictionary={
             "id":sound.id,
             "name":new_Name,
@@ -84,7 +84,7 @@ def DownloadNextPage(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.randrange(1,10)
+            fold_no = random.randrange(0,11)
             rowDictionaryPaged={
             "id":sound.id,
             "name":new_Name,
@@ -110,7 +110,7 @@ def DownloadThirdPage(arr,dir):
         page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
         nextPage = page.next_page()
         thirdPage = nextPage.next_page()
-        fold_no = random.randrange(1,10)
+        fold_no = random.randrange(0,11)
         for sound in thirdPage:
             if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
             #print("Skipped" + str(sound))
