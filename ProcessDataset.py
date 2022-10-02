@@ -27,23 +27,19 @@ def ConvertFilesWithFFmpeg(input_dir,output_dir):
         ffmpeg.run(output)
 
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'001 - Voices'),os.path.join(copy_parent_folder,'001 - Voices'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'002 - Liquids'),os.path.join(copy_parent_folder,'002 - Liquids'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'003 - Locomotion'),os.path.join(copy_parent_folder,'003 - Locomotion'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'004 - HouseItems'),os.path.join(copy_parent_folder,'004 - HouseItems'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'005 - Digestive'),os.path.join(copy_parent_folder,'005 - Digestive'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'006 - Hygiene'),os.path.join(copy_parent_folder,'006 - Hygiene'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'007 - Elements'),os.path.join(copy_parent_folder,'007 - Elements'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'008 - Animals'),os.path.join(copy_parent_folder,'008 - Animals'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'009 - Cooking_Appliances'),os.path.join(copy_parent_folder,'009 - Cooking_Appliances'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'010 - Cleaning_Appliances'),os.path.join(copy_parent_folder,'010 - Cleaning_Appliances'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'011 - Lighting_Appliances'),os.path.join(copy_parent_folder,'011 - Lighting_Appliances'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'012 - Ventilation_Appliances'),os.path.join(copy_parent_folder,'012 - Ventilation_Appliances'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'013 - Furniture'),os.path.join(copy_parent_folder,'013 - Furniture'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'014 - Tools'),os.path.join(copy_parent_folder,'014 - Tools'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'015 - Instruments'),os.path.join(copy_parent_folder,'015 - Instruments'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'002 - Locomotion'),os.path.join(copy_parent_folder,'002 - Locomotion'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'003 - Digestive'),os.path.join(copy_parent_folder,'003 - Digestive'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'004 - Hygiene'),os.path.join(copy_parent_folder,'004 - Hygiene'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'005 - Animals'),os.path.join(copy_parent_folder,'005 - Animals'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'006 - Cooking_Appliances'),os.path.join(copy_parent_folder,'006 - Cooking_Appliances'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'007 - Cleaning_Appliances'),os.path.join(copy_parent_folder,'007 - Cleaning_Appliances'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'008 - Ventilation_Appliances'),os.path.join(copy_parent_folder,'008 - Ventilation_Appliances'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'009 - Furniture'),os.path.join(copy_parent_folder,'009 - Furniture'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'010 - Instruments'),os.path.join(copy_parent_folder,'010 - Instruments'))
 
 
 #Test Function To Test If Number of Files Match in Original and Copy AudioData Folder
+
 def findSum(input,output):
     count_files_og = 0
     for parent_dir in os.listdir(input):
@@ -55,9 +51,7 @@ def findSum(input,output):
             count_files_copy += 1
     return count_files_og, count_files_copy
 
-print(findSum('AudioData','Folded-AudioData'))
-
-def GenerateWAVEFromArray(input_dir,output_dir):
+def GenerateWAVE(input_dir,output_dir):
     files = os.listdir(input_dir)
     for eachfile in files:
         file_path = os.path.join(input_dir,eachfile)
@@ -65,21 +59,16 @@ def GenerateWAVEFromArray(input_dir,output_dir):
         print("Converting " + file_path)
         soundfile.write(os.path.join(output_dir,(str(eachfile[:len(eachfile)-5]))) + "wav",y,sr)
 
-GenerateWAVEFromArray(os.path.join(parent_folder,'001 - Voices'),os.path.join(copy_parent_folder,'001 - Voices'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'002 - Liquids'),os.path.join(copy_parent_folder,'002 - Liquids'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'003 - Locomotion'),os.path.join(copy_parent_folder,'003 - Locomotion'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'004 - HouseItems'),os.path.join(copy_parent_folder,'004 - HouseItems'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'005 - Digestive'),os.path.join(copy_parent_folder,'005 - Digestive'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'006 - Hygiene'),os.path.join(copy_parent_folder,'006 - Hygiene'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'007 - Elements'),os.path.join(copy_parent_folder,'007 - Elements'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'008 - Animals'),os.path.join(copy_parent_folder,'008 - Animals'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'009 - Cooking_Appliances'),os.path.join(copy_parent_folder,'009 - Cooking_Appliances'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'010 - Cleaning_Appliances'),os.path.join(copy_parent_folder,'010 - Cleaning_Appliances'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'011 - Lighting_Appliances'),os.path.join(copy_parent_folder,'011 - Lighting_Appliances'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'012 - Ventilation_Appliances'),os.path.join(copy_parent_folder,'012 - Ventilation_Appliances'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'013 - Furniture'),os.path.join(copy_parent_folder,'013 - Furniture'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'014 - Tools'),os.path.join(copy_parent_folder,'014 - Tools'))
-GenerateWAVEFromArray(os.path.join(parent_folder,'015 - Instruments'),os.path.join(copy_parent_folder,'015 - Instruments'))
+GenerateWAVE(os.path.join(parent_folder,'001 - Voices'),os.path.join(copy_parent_folder,'001 - Voices'))
+GenerateWAVE(os.path.join(parent_folder,'002 - Locomotion'),os.path.join(copy_parent_folder,'002 - Locomotion'))
+GenerateWAVE(os.path.join(parent_folder,'003 - Digestive'),os.path.join(copy_parent_folder,'003 - Digestive'))
+GenerateWAVE(os.path.join(parent_folder,'004 - Hygiene'),os.path.join(copy_parent_folder,'004 - Hygiene'))
+GenerateWAVE(os.path.join(parent_folder,'005 - Animals'),os.path.join(copy_parent_folder,'005 - Animals'))
+GenerateWAVE(os.path.join(parent_folder,'006 - Cooking_Appliances'),os.path.join(copy_parent_folder,'006 - Cooking_Appliances'))
+GenerateWAVE(os.path.join(parent_folder,'007 - Cleaning_Appliances'),os.path.join(copy_parent_folder,'007 - Cleaning_Appliances'))
+GenerateWAVE(os.path.join(parent_folder,'008 - Ventilation_Appliances'),os.path.join(copy_parent_folder,'008 - Ventilation_Appliances'))
+GenerateWAVE(os.path.join(parent_folder,'009 - Furniture'),os.path.join(copy_parent_folder,'009 - Furniture'))
+GenerateWAVE(os.path.join(parent_folder,'010 - Instruments'),os.path.join(copy_parent_folder,'010 - Instruments'))
 
 folded = 'Folded-AudioData'
 
@@ -92,10 +81,7 @@ def categorizeFiles(input_dir):
         print(fold_no)
         temp = eachfile.split("\\")
         outputfile = temp[2]
-        if fold_no == '0':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold0',outputfile))
-        elif fold_no == '1':
+        if fold_no == '1':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold1',outputfile))
         elif fold_no == '2':
@@ -119,9 +105,12 @@ def categorizeFiles(input_dir):
         elif fold_no == '8':
             print("renaming:" + eachfile)
             os.rename(eachfile,os.path.join(folded,'fold8',outputfile))
-        elif fold_no == '9' or fold_no == '10':
+        elif fold_no == '9':
             print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold9',outputfile))    
+            os.rename(eachfile,os.path.join(folded,'fold9',outputfile))
+        elif fold_no == '10':
+            print("renaming:" + eachfile)
+            os.rename(eachfile,os.path.join(folded,'fold10',outputfile))
 
 for subdir in all_og_child_directories:
     categorizeFiles(subdir)

@@ -31,7 +31,7 @@ SOURCE_DATA = 'AudioData'
 sub_dirs = os.listdir(SOURCE_DATA)
 
 dict_classID = {}
-for i in range(15):
+for i in range(10):
     dict_classID[sub_dirs[i]] = i+1
 
 print(dict_classID)
@@ -51,7 +51,7 @@ def DownloadDictOfSoundResults(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.randrange(0,10)
+            fold_no = random.randrange(1,10)
             rowDictionary={
             "id":sound.id,
             "name":new_Name,
@@ -84,7 +84,7 @@ def DownloadNextPage(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.randrange(0,10)
+            fold_no = random.randrange(1,10)
             rowDictionaryPaged={
             "id":sound.id,
             "name":new_Name,
@@ -110,7 +110,7 @@ def DownloadThirdPage(arr,dir):
         page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
         nextPage = page.next_page()
         thirdPage = nextPage.next_page()
-        fold_no = random.randrange(0,10)
+        fold_no = random.randrange(1,10)
         for sound in thirdPage:
             if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
             #print("Skipped" + str(sound))
@@ -138,7 +138,7 @@ def DownloadThirdPage(arr,dir):
             count += 1
             print(str(count) + ": " + new_Name)
 
-voice_arr = ["speaking","laughing","shouting","crying","coughing"]
+voice_arr = ["speaking","laughing","shouting","crying","coughing","sneezing"]
 DownloadDictOfSoundResults(voice_arr,'001 - Voices')
 DownloadNextPage(voice_arr,'001 - Voices')
 with open('Voices.csv', 'w',encoding='utf-8') as csvfile:
@@ -148,23 +148,11 @@ with open('Voices.csv', 'w',encoding='utf-8') as csvfile:
     for row in Dataoutput:
         writer.writerow(row);
 
-
-Dataoutput.clear()
-bev_arr = ["splash","pour","drip","fill","boil"]
-DownloadDictOfSoundResults(bev_arr,'002 - Liquids')
-DownloadNextPage(bev_arr,'002 - Liquids')
-with open('Liquids.csv', 'w',encoding='utf-8') as csvfile:
-    fieldnames = Dataoutput[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
-    writer.writeheader()
-    for row in Dataoutput:
-        writer.writerow(row);
-
 Dataoutput.clear()
 locomotion_arr = ["walking","clapping","snapping","running","footsteps"]
-DownloadDictOfSoundResults(locomotion_arr,'003 - Locomotion')
-DownloadNextPage(locomotion_arr,'003 - Locomotion')
-DownloadThirdPage(locomotion_arr,'003 - Locomotion')
+DownloadDictOfSoundResults(locomotion_arr,'002 - Locomotion')
+DownloadNextPage(locomotion_arr,'002 - Locomotion')
+DownloadThirdPage(locomotion_arr,'002 - Locomotion')
 with open('Motion.csv', 'w',encoding='utf-8') as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -173,21 +161,10 @@ with open('Motion.csv', 'w',encoding='utf-8') as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
-items_arr = ["box moving","coins","plastic bags","keys","velcro","silverware,","cans"]
-DownloadDictOfSoundResults(items_arr,'004 - HouseItems')
-DownloadNextPage(items_arr,'004 - HouseItems')
-with open('HouseholdItems.csv', 'w',encoding='utf-8') as csvfile:
-    fieldnames = Dataoutput[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
-    writer.writeheader()
-    for row in Dataoutput:
-        writer.writerow(row);
-
-Dataoutput.clear()
 digestive = ["chewing","biting","gargling","hiccuping","burping","stomach rumbling"]
-DownloadDictOfSoundResults(digestive,'005 - Digestive')
-DownloadNextPage(digestive,'005 - Digestive')
-DownloadThirdPage(digestive,'005 - Digestive')
+DownloadDictOfSoundResults(digestive,'003 - Digestive')
+DownloadNextPage(digestive,'003 - Digestive')
+DownloadThirdPage(digestive,'003 - Digestive')
 with open('Digestive.csv', 'w',encoding='utf-8') as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -197,9 +174,9 @@ with open('Digestive.csv', 'w',encoding='utf-8') as csvfile:
 
 
 Dataoutput.clear()
-Hyg_arr = ["hygiene","vaccum","shaving","cleaning home","aerosol","hair spray"]
-DownloadDictOfSoundResults(Hyg_arr,'006 - Hygiene')
-#DownloadNextPage(Hyg_arr,'006 - Hygiene')
+Hyg_arr = ["hygiene","shaving","cleaning home","aerosol","hair spray","ventilator"]
+DownloadDictOfSoundResults(Hyg_arr,'004 - Hygiene')
+DownloadNextPage(Hyg_arr,'004 - Hygiene')
 with open('Hygiene.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -208,22 +185,10 @@ with open('Hygiene.csv', 'w', encoding="utf-8") as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
-nature_arr = ["gusts","rain","thunder","hail"]
-DownloadDictOfSoundResults(nature_arr,'007 - Elements')
-DownloadNextPage(nature_arr,'007 - Elements')
-with open('Nature.csv', 'w', encoding="utf-8") as csvfile:
-    fieldnames = Dataoutput[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
-    writer.writeheader()
-    for row in Dataoutput:
-        writer.writerow(row);
-
-
-Dataoutput.clear()
 anm_arr = ["dog","cat","bark","mews","howl"]
-DownloadDictOfSoundResults(anm_arr,'008 - Animals')
-DownloadNextPage(anm_arr,'008 - Animals')
-DownloadThirdPage(anm_arr,'008 - Animals')
+DownloadDictOfSoundResults(anm_arr,'005 - Animals')
+DownloadNextPage(anm_arr,'005 - Animals')
+DownloadThirdPage(anm_arr,'005 - Animals')
 with open('Animals.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -233,8 +198,8 @@ with open('Animals.csv', 'w', encoding="utf-8") as csvfile:
 
 Dataoutput.clear()
 Cooking = ["microwave","oven","refrigerator","stove","toaster","kettle"]
-DownloadDictOfSoundResults(Cooking,'009 - Cooking_Appliances')
-DownloadNextPage(Cooking,'009 - Cooking_Appliances')
+DownloadDictOfSoundResults(Cooking,'006 - Cooking_Appliances')
+DownloadNextPage(Cooking,'006 - Cooking_Appliances')
 with open('Cooking_Appliances.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -244,9 +209,9 @@ with open('Cooking_Appliances.csv', 'w', encoding="utf-8") as csvfile:
 
 Dataoutput.clear()
 
-Cleaning = ["dishwasher","washer","dryer","vaccum"]
-DownloadDictOfSoundResults(Cleaning,'010 - Cleaning_Appliances')
-#DownloadNextPage(Cleaning,'010 - Cleaning_Appliances')
+Cleaning = ["dishwasher","washer","dryer","vaccum cleaner","toilet","laundry"]
+DownloadDictOfSoundResults(Cleaning,'007 - Cleaning_Appliances')
+#DownloadNextPage(Cleaning,'007 - Cleaning_Appliances')
 with open('Cleaning_Appliances.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -256,23 +221,9 @@ with open('Cleaning_Appliances.csv', 'w', encoding="utf-8") as csvfile:
 
 Dataoutput.clear()
 
-lighting = ["light switch","flashlight","lamp","lightbulb","light"]
-DownloadDictOfSoundResults(lighting, '011 - Lighting_Appliances')
-DownloadNextPage(lighting, '011 - Lighting_Appliances')
-DownloadThirdPage(lighting, '011 - Lighting_Appliances')
-with open('Lighting.csv', 'w', encoding="utf-8") as csvfile:
-    fieldnames = Dataoutput[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
-    writer.writeheader()
-    for row in Dataoutput:
-        writer.writerow(row);
-
-
-Dataoutput.clear()
-
 ventilation = ["fans","heater","air conditioner","home ventilation"]
-DownloadDictOfSoundResults(ventilation,'012 - Ventilation_Appliances')
-DownloadNextPage(ventilation,'012 - Ventilation_Appliances')
+DownloadDictOfSoundResults(ventilation,'008 - Ventilation_Appliances')
+DownloadNextPage(ventilation,'008 - Ventilation_Appliances')
 with open('Ventilation.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -282,8 +233,8 @@ with open('Ventilation.csv', 'w', encoding="utf-8") as csvfile:
 
 Dataoutput.clear()
 furniture = ["sofa","door","cabinet","chair","bed","drawers","closet"]
-DownloadDictOfSoundResults(furniture,'013 - Furniture')
-DownloadNextPage(furniture,'013 - Furniture')
+DownloadDictOfSoundResults(furniture,'009 - Furniture')
+DownloadNextPage(furniture,'009 - Furniture')
 with open('Furniture.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -292,21 +243,9 @@ with open('Furniture.csv', 'w', encoding="utf-8") as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
-tools = ["hammer","saw","screwdriver","power dril"]
-DownloadDictOfSoundResults(tools, '014 - Tools')
-#DownloadNextPage(tools,'014 - Tools')
-with open('Tools.csv', 'w', encoding="utf-8") as csvfile:
-    fieldnames = Dataoutput[0].keys()
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
-    writer.writeheader()
-    for row in Dataoutput:
-        writer.writerow(row);
-
-
-Dataoutput.clear()
 InstrumentsArr = ["guitar","piano","flute","trumpet","saxophone"]
-DownloadDictOfSoundResults(InstrumentsArr,'015 - Instruments')
-DownloadNextPage(InstrumentsArr,'015 - Instruments')
+DownloadDictOfSoundResults(InstrumentsArr,'010 - Instruments')
+DownloadNextPage(InstrumentsArr,'010 - Instruments')
 with open('Instruments.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
