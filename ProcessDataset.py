@@ -16,7 +16,6 @@ all_og_child_directories = os.listdir(parent_folder)
 #copy_parent_folder = 'Copy-AudioData'
 #all_copy_child_directories = os.listdir(copy_parent_folder)
 
-"""
 def ConvertFilesWithFFmpeg(input_dir,output_dir):
     files = os.listdir(input_dir)
     print(files)
@@ -42,7 +41,6 @@ ConvertFilesWithFFmpeg(os.path.join(parent_folder,'012 - Ventilation_Appliances'
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'013 - Furniture'),os.path.join(copy_parent_folder,'013 - Furniture'))
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'014 - Tools'),os.path.join(copy_parent_folder,'014 - Tools'))
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'015 - Instruments'),os.path.join(copy_parent_folder,'015 - Instruments'))
-"""
 
 
 #Test Function To Test If Number of Files Match in Original and Copy AudioData Folder
@@ -59,7 +57,6 @@ def findSum(input,output):
 
 print(findSum('AudioData','Folded-AudioData'))
 
-"""
 def GenerateWAVEFromArray(input_dir,output_dir):
     files = os.listdir(input_dir)
     for eachfile in files:
@@ -83,7 +80,6 @@ GenerateWAVEFromArray(os.path.join(parent_folder,'012 - Ventilation_Appliances')
 GenerateWAVEFromArray(os.path.join(parent_folder,'013 - Furniture'),os.path.join(copy_parent_folder,'013 - Furniture'))
 GenerateWAVEFromArray(os.path.join(parent_folder,'014 - Tools'),os.path.join(copy_parent_folder,'014 - Tools'))
 GenerateWAVEFromArray(os.path.join(parent_folder,'015 - Instruments'),os.path.join(copy_parent_folder,'015 - Instruments'))
-"""
 
 folded = 'Folded-AudioData'
 
