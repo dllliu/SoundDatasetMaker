@@ -7,9 +7,10 @@ import csv
 import numpy as np
 import random
 
-api_key = os.getenv('FREESOUND_API_KEY', "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy")
-client_secret = "BLkaRWL7Vr8nl6K2yvzDw3q3SKKYiuMlclJU7ECy"
-client_id = "uPkz0WfINfbiy8r7exNy"
+#Replace With Own API Key from FreeSound for client_secret and client_id
+api_key = os.getenv('FREESOUND_API_KEY')
+client_secret = 
+client_id = 
 token = client_secret
 
 delay = 2;
