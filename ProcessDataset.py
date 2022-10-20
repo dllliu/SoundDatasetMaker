@@ -10,11 +10,9 @@ import ffmpeg
 
 #Alrady Ran to Convert Files
 
-parent_folder = 'AudioData'
-all_og_child_directories = os.listdir(parent_folder)
+parent_folder = #OG SOURCE DIR WHERE ALL SUBFOLDERS OF FILE CLASSES WERE SAVED
 
-#copy_parent_folder = 'Copy-AudioData'
-#all_copy_child_directories = os.listdir(copy_parent_folder)
+copy_parent_folder = #COPY DIRS FOR EACH STEP
 
 def ConvertFilesWithFFmpeg(input_dir,output_dir):
     files = os.listdir(input_dir)
@@ -29,7 +27,7 @@ def ConvertFilesWithFFmpeg(input_dir,output_dir):
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'001 - Voices'),os.path.join(copy_parent_folder,'001 - Voices'))
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'002 - Locomotion'),os.path.join(copy_parent_folder,'002 - Locomotion'))
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'003 - Digestive'),os.path.join(copy_parent_folder,'003 - Digestive'))
-ConvertFilesWithFFmpeg(os.path.join(parent_folder,'004 - Hygiene'),os.path.join(copy_parent_folder,'004 - Hygiene'))
+ConvertFilesWithFFmpeg(os.path.join(parent_folder,'004 - Elements'),os.path.join(copy_parent_folder,'004 - Elements'))
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'005 - Animals'),os.path.join(copy_parent_folder,'005 - Animals'))
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'006 - Cooking_Appliances'),os.path.join(copy_parent_folder,'006 - Cooking_Appliances'))
 ConvertFilesWithFFmpeg(os.path.join(parent_folder,'007 - Cleaning_Appliances'),os.path.join(copy_parent_folder,'007 - Cleaning_Appliances'))
@@ -39,7 +37,6 @@ ConvertFilesWithFFmpeg(os.path.join(parent_folder,'010 - Instruments'),os.path.j
 
 
 #Test Function To Test If Number of Files Match in Original and Copy AudioData Folder
-
 def findSum(input,output):
     count_files_og = 0
     for parent_dir in os.listdir(input):
@@ -62,7 +59,7 @@ def GenerateWAVE(input_dir,output_dir):
 GenerateWAVE(os.path.join(parent_folder,'001 - Voices'),os.path.join(copy_parent_folder,'001 - Voices'))
 GenerateWAVE(os.path.join(parent_folder,'002 - Locomotion'),os.path.join(copy_parent_folder,'002 - Locomotion'))
 GenerateWAVE(os.path.join(parent_folder,'003 - Digestive'),os.path.join(copy_parent_folder,'003 - Digestive'))
-GenerateWAVE(os.path.join(parent_folder,'004 - Hygiene'),os.path.join(copy_parent_folder,'004 - Hygiene'))
+GenerateWAVE(os.path.join(parent_folder,'004 - Elements'),os.path.join(copy_parent_folder,'004 - Elements'))
 GenerateWAVE(os.path.join(parent_folder,'005 - Animals'),os.path.join(copy_parent_folder,'005 - Animals'))
 GenerateWAVE(os.path.join(parent_folder,'006 - Cooking_Appliances'),os.path.join(copy_parent_folder,'006 - Cooking_Appliances'))
 GenerateWAVE(os.path.join(parent_folder,'007 - Cleaning_Appliances'),os.path.join(copy_parent_folder,'007 - Cleaning_Appliances'))
@@ -71,49 +68,27 @@ GenerateWAVE(os.path.join(parent_folder,'009 - Furniture'),os.path.join(copy_par
 GenerateWAVE(os.path.join(parent_folder,'010 - Instruments'),os.path.join(copy_parent_folder,'010 - Instruments'))
 
 
-"""
-folded = 'Folded-AudioData'
+folded_dir = 'Folded-AudioData'
 
+def make_file_structure():
+    arr = ['fold0','fold1','fold2','fold3','fold4','fold5','fold6','fold7','fold8','fold9']
+    for fold in arr:
+        OutFolder = os.path.join(folded_dir,fold)
+        if not os.path.exists(OutFolder):
+            os.makedirs(OutFolder)
+            
 def categorizeFiles(input_dir):
     files = glob(os.path.join(parent_folder,input_dir,'*.wav'))
     print(files)
     for eachfile in files:
         arr = eachfile.split("-")
         fold_no = str(arr[3])[0]
-        print(fold_no)
+        print("renaming:" + str(eachfile) + "with fold number of" + str(fold_no))
         temp = eachfile.split("\\")
         outputfile = temp[2]
-        if fold_no == '0':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold1',outputfile))
-        elif fold_no == '1':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold2',outputfile))
-        elif fold_no == '2':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold3',outputfile))
-        elif fold_no == '3':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold4',outputfile))
-        elif fold_no == '4':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold5',outputfile))
-        elif fold_no == '5':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold6',outputfile))
-        elif fold_no == '6':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold7',outputfile))
-        elif fold_no == '7':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold8',outputfile))
-        elif fold_no == '8':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold9',outputfile))
-        elif fold_no == '9':
-            print("renaming:" + eachfile)
-            os.rename(eachfile,os.path.join(folded,'fold10',outputfile))
+        os.rename(eachfile,os.path.join(folded_dir,'fold'+str(fold_no),outputfile))
 
-
-for subdir in all_og_child_directories:
-    categorizeFiles(subdir)    
+make_file_structure()
+for subdir in os.listdir(parent_folder):
+    categorizeFiles(subdir) 
+  
