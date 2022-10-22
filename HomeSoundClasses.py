@@ -41,7 +41,6 @@ print(dict_classID)
 
 def DownloadDictOfSoundResults(arr,dir):
     count = 0
-    finished = False
     temp = []
     for x in arr:
         page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
@@ -54,7 +53,7 @@ def DownloadDictOfSoundResults(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.randrange(0,11)
+            fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
             rowDictionary={
             "id":sound.id,
             "name":new_Name,
@@ -87,7 +86,7 @@ def DownloadNextPage(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.randrange(0,11)
+            fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
             rowDictionaryPaged={
             "id":sound.id,
             "name":new_Name,
@@ -113,8 +112,43 @@ def DownloadThirdPage(arr,dir):
         page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
         nextPage = page.next_page()
         thirdPage = nextPage.next_page()
-        fold_no = random.randrange(0,11)
+        fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
         for sound in thirdPage:
+            if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
+            #print("Skipped" + str(sound))
+                continue
+            tags = str(sound.tags)
+            New_Tags = tags.replace(",","+")
+            Name = str(sound.name)
+            new_Name = Name.replace("\\","-")
+            rowDictionaryPaged={
+            "id":sound.id,
+            "name":new_Name,
+            "url":sound.url,
+            "className":dir,
+            "classID":dict_classID[dir],
+            "tags":New_Tags,
+            "username":sound.username,
+            "license":sound.license,
+            "description":sound.description,
+            "duration":str(sound.duration),
+            "geotags":sound.geotag,
+            "fold":fold_no
+            }
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
+            Dataoutput.append(rowDictionaryPaged)
+            count += 1
+            print(str(count) + ": " + new_Name)
+
+def DownloadFourthPage(arr,dir):
+    count = 0
+    for x in arr:
+        page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
+        nextPage = page.next_page()
+        thirdPage = nextPage.next_page()
+        Fourth = thirdPage.next_page()
+        fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
+        for sound in Fourth:
             if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
             #print("Skipped" + str(sound))
                 continue
@@ -189,10 +223,11 @@ with open('Elements.csv', 'w', encoding="utf-8") as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
-anm_arr = ["dog","cat","bark","mews","howl"]
+anm_arr = ["dog","cat","bark","mews","tweet"]
 DownloadDictOfSoundResults(anm_arr,'005 - Animals')
 DownloadNextPage(anm_arr,'005 - Animals')
-#DownloadThirdPage(anm_arr,'005 - Animals')
+DownloadThirdPage(anm_arr,'005 - Animals')
+DownloadFourthPage(anm_arr,'005 - Animals')
 with open('Animals.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
