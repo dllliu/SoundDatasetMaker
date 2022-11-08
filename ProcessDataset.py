@@ -183,7 +183,7 @@ def get_all_labels(sub_dir):
         temp.append(class_nums.count(str(element)))
     class_nums.clear()
     return temp
-
+    
 dict = {}
 for i in range(10):
     dict['fold'+str(i)] = get_all_labels('fold'+str(i))
@@ -217,7 +217,7 @@ bar9 = plt.bar(ind+width*8, fold8, width, color = '#33FEB1')
 bar10 = plt.bar(ind+width*9, fold9, width, color = '#FEBA33')
   
 plt.xlabel("Fold Number")
-plt.ylabel('Class ID Occurances')
+plt.ylabel('Class ID Occurences')
 plt.title("Number of each Class ID Within Each Fold")
   
 plt.xticks(ind+width*5,['fold0','fold1','fold2','fold3','fold4','fold5','fold6','fold7','fold8','fold9'])
