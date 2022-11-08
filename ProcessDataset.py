@@ -57,6 +57,7 @@ def GenerateWAVE(input_dir,output_dir):
         print("Converting " + file_path)
         soundfile.write(os.path.join(output_dir,(str(eachfile[:len(eachfile)-5]))) + "wav",y,sr)
 
+
 GenerateWAVE(os.path.join(parent_folder,'001 - Voices'),os.path.join(copy_parent_folder,'001 - Voices'))
 GenerateWAVE(os.path.join(parent_folder,'002 - Locomotion'),os.path.join(copy_parent_folder,'002 - Locomotion'))
 GenerateWAVE(os.path.join(parent_folder,'003 - Digestive'),os.path.join(copy_parent_folder,'003 - Digestive'))
@@ -69,8 +70,9 @@ GenerateWAVE(os.path.join(parent_folder,'009 - Furniture'),os.path.join(copy_par
 GenerateWAVE(os.path.join(parent_folder,'010 - Instruments'),os.path.join(copy_parent_folder,'010 - Instruments'))
 
 
-folded_dir = 'Folded-AudioData'
 
+folded_dir = 'Folded-AudioData'
+    
 def make_file_structure():
     arr = ['fold0','fold1','fold2','fold3','fold4','fold5','fold6','fold7','fold8','fold9']
     for fold in arr:
@@ -80,57 +82,56 @@ def make_file_structure():
 
 def categorizeFiles(input_dir):
     files = glob(os.path.join(parent_folder,input_dir,'*.wav'))
-    print(files)
+    #files in a subdir of for example, 001-Voices
+    i = 0
     for eachfile in files:
         arr = eachfile.split("-")
-        fold_no = str(arr[3])[0]
-        temp_arr.append(fold_no)
-        print("renaming:" + str(eachfile) + "with fold number of" + str(fold_no))
+        class_no = str(arr[2])[0]
         temp = eachfile.split("\\")
         outputfile = temp[2]
-        os.rename(eachfile,os.path.join(folded_dir,'fold'+str(fold_no),outputfile))
+        print("renaming: " + str(eachfile) + " to " + str(os.path.join(folded_dir,'fold'+str(i),outputfile)))
+        os.rename(eachfile,os.path.join(folded_dir,'fold'+str(i),outputfile))
+        i += 1
+        if i == 10:
+            i = 0
 
 #make file structure for folded data(eg: fold1, fold2...)
 
 ###   
-'''
-temp_arr = []
+
 make_file_structure()
 for subdir in os.listdir(parent_folder):
     categorizeFiles(subdir)
-''' 
-####
 
+####
 
 folded_dir = 'Folded-AudioData'
 
 ##Show Bar Plot For Fold Distribution
-folds_count = []
-def get_all_fold_num(input_dir):
+classes_count = []
+def get_all_class_num(input_dir):
     files = glob(os.path.join(folded_dir,input_dir,'*.wav'))
     for eachfile in files:
         arr = eachfile.split("-")
-        fold_no = str(arr[3])[0]
-        folds_count.append(fold_no)
+        class_no = str(arr[2])[0]
+        classes_count.append(class_no)
 
 for subdir in os.listdir(folded_dir):
-    get_all_fold_num(subdir)
+    get_all_class_num(subdir)
 
-print(temp_arr)
-print(len(temp_arr))
+print(classes_count)
+print(len(classes_count))
 
 a = [0,1,2,3,4,5,6,7,8,9]
 b= []
 for element in a:
-    b.append(temp_arr.count(str(element)))
-    print(str(element) + " has occurence of " + str(folds_count.count(str(element))))
+    b.append(classes_count.count(str(element)))
+    print(str(element) + " has occurence of " + str(classes_count.count(str(element))))
 
 fig = plt.figure(figsize = (10, 5))
- 
 # creating the bar plot
 plt.bar(a, b, color ='maroon',
         width = 0.4)
- 
 plt.xlabel("Fold Number")
 plt.ylabel("Occurence")
 plt.title("Fold Distribution")
@@ -222,5 +223,3 @@ plt.title("Number of each Class ID Within Each Fold")
 plt.xticks(ind+width*5,['fold0','fold1','fold2','fold3','fold4','fold5','fold6','fold7','fold8','fold9'])
 plt.legend((bar1,bar2, bar3,bar4,bar6,bar6,bar7,bar8,bar9,bar10), ("0-Voices","1-Locomotion","2-Digestive","3-Elements","4-Animals","5-Cook_App","6-Clean-App","7-Vent_App","8-Furniture","9-Instruments"),fontsize=6)
 plt.show()
-
-

@@ -9,8 +9,8 @@ import random
 
 #Replace With Own API Key from FreeSound for client_secret and client_id
 
-api_key = os.getenv('FREESOUND_API_KEY')
-client_secret = 
+api_key = 
+client_secret =
 client_id = 
 token = client_secret
 
@@ -53,7 +53,6 @@ def DownloadDictOfSoundResults(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
             rowDictionary={
             "id":sound.id,
             "name":new_Name,
@@ -66,9 +65,8 @@ def DownloadDictOfSoundResults(arr,dir):
             "description":sound.description,
             "duration":str(sound.duration),
             "geotags":sound.geotag,
-            "fold":fold_no
             }
-            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+".wav"))
             count += 1
             Dataoutput.append(rowDictionary)
             print(str(count) + ": " + new_Name)
@@ -86,7 +84,6 @@ def DownloadNextPage(arr,dir):
             New_Tags = tags.replace(",","+")
             Name = str(sound.name)
             new_Name = Name.replace("\\","-")
-            fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
             rowDictionaryPaged={
             "id":sound.id,
             "name":new_Name,
@@ -99,9 +96,8 @@ def DownloadNextPage(arr,dir):
             "description":sound.description,
             "duration":str(sound.duration),
             "geotags":sound.geotag,
-            "fold":fold_no
             }
-            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+".wav"))
             Dataoutput.append(rowDictionaryPaged)
             count += 1
             print(str(count) + ": " + new_Name)
@@ -112,7 +108,6 @@ def DownloadThirdPage(arr,dir):
         page = client.text_search(query=x,fields="id,name,previews,duration,username,tags,description,geotag,license,url")
         nextPage = page.next_page()
         thirdPage = nextPage.next_page()
-        fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
         for sound in thirdPage:
             if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
             #print("Skipped" + str(sound))
@@ -133,9 +128,8 @@ def DownloadThirdPage(arr,dir):
             "description":sound.description,
             "duration":str(sound.duration),
             "geotags":sound.geotag,
-            "fold":fold_no
             }
-            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+".wav"))
             Dataoutput.append(rowDictionaryPaged)
             count += 1
             print(str(count) + ": " + new_Name)
@@ -147,7 +141,6 @@ def DownloadFourthPage(arr,dir):
         nextPage = page.next_page()
         thirdPage = nextPage.next_page()
         Fourth = thirdPage.next_page()
-        fold_no = random.choices([0,1,2,3,4,5,6,7,8,9], weights=[0.1, 0.1, 0.1, 0.1,0.1,0.1,0.1,0.1,0.1,0.1])[0]
         for sound in Fourth:
             if sound.duration <= 5 or str(sound.username) == "Duisterwho" or "\\" in str(sound.name) or "/" in str(sound.name):
             #print("Skipped" + str(sound))
@@ -168,13 +161,12 @@ def DownloadFourthPage(arr,dir):
             "description":sound.description,
             "duration":str(sound.duration),
             "geotags":sound.geotag,
-            "fold":fold_no
             }
-            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+"-"+str(fold_no)+".wav"))
+            sound.retrieve_preview(".",os.path.join(SOURCE_DATA,dir,str(sound.id)+"-"+str(dict_classID[dir])+".wav"))
             Dataoutput.append(rowDictionaryPaged)
             count += 1
             print(str(count) + ": " + new_Name)
-
+'''
 voice_arr = ["speaking","laughing","shouting","crying","coughing","sneezing"]
 DownloadDictOfSoundResults(voice_arr,'001 - Voices')
 DownloadNextPage(voice_arr,'001 - Voices')
@@ -185,6 +177,7 @@ with open('Voices.csv', 'w',encoding='utf-8') as csvfile:
     writer.writeheader()
     for row in Dataoutput:
         writer.writerow(row);
+
 
 Dataoutput.clear()
 locomotion_arr = ["walking","clapping","snapping","running","footsteps"]
@@ -211,7 +204,7 @@ with open('Digestive.csv', 'w',encoding='utf-8') as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
-Elements_arr = ['Wind','Rain','Thunder','Hail']
+Elements_arr = ['Wind','Rain','Thunder',"rainstorm"]
 DownloadDictOfSoundResults(Elements_arr,'004 - Elements')
 DownloadNextPage(Elements_arr,'004 - Elements')
 DownloadThirdPage(Elements_arr,'004 - Elements')
@@ -239,7 +232,6 @@ Dataoutput.clear()
 Cooking = ["microwave","oven","refrigerator","stove","toaster","kettle"]
 DownloadDictOfSoundResults(Cooking,'006 - Cooking_Appliances')
 DownloadNextPage(Cooking,'006 - Cooking_Appliances')
-DownloadThirdPage(Cooking,'006 - Cooking_Appliances')
 with open('Cooking_Appliances.csv', 'w', encoding="utf-8") as csvfile:
     fieldnames = Dataoutput[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames,delimiter=',')
@@ -248,6 +240,7 @@ with open('Cooking_Appliances.csv', 'w', encoding="utf-8") as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
+
 
 Cleaning = ["dishwasher","washer","dryer","laundry"]
 DownloadDictOfSoundResults(Cleaning,'007 - Cleaning_Appliances')
@@ -261,8 +254,8 @@ with open('Cleaning_Appliances.csv', 'w', encoding="utf-8") as csvfile:
         writer.writerow(row);
 
 Dataoutput.clear()
-
-ventilation = ["Ventilation fans","heater","air conditioner"]
+'''
+ventilation = ["Ventilation fans","heater","air conditioner", "ventilation"]
 DownloadDictOfSoundResults(ventilation,'008 - Ventilation_Appliances')
 DownloadNextPage(ventilation,'008 - Ventilation_Appliances')
 DownloadThirdPage(ventilation,'008 - Ventilation_Appliances')
@@ -272,6 +265,7 @@ with open('Ventilation.csv', 'w', encoding="utf-8") as csvfile:
     writer.writeheader()
     for row in Dataoutput:
         writer.writerow(row);
+
 
 Dataoutput.clear()
 furniture = ["sofa","door","cabinet","chair","bed","drawers","closet"]
@@ -285,8 +279,9 @@ with open('Furniture.csv', 'w', encoding="utf-8") as csvfile:
     for row in Dataoutput:
         writer.writerow(row);
 
+
 Dataoutput.clear()
-InstrumentsArr = ["guitar","piano","flute","trumpet","saxophone"]
+InstrumentsArr = ["guitar","piano","flute","trumpet"]
 DownloadDictOfSoundResults(InstrumentsArr,'010 - Instruments')
 DownloadNextPage(InstrumentsArr,'010 - Instruments')
 DownloadThirdPage(InstrumentsArr,'010 - Instruments')
